@@ -390,6 +390,7 @@ Changes not staged for commit:
 
 ```
 ### ` $ git reset project1/ `
+Also Git comes up with a hint as well, as we can see above (use "git rm --cached <file>..." to unstage)... so `git reset <file>` also is an equivalent command.
 ```
 Unstaged changes after reset:
 M       Git.md
