@@ -65,9 +65,9 @@ fatal: Couldn't look up commit object for HEAD
 error: Cannot delete branch 'developer' checked out at '/home/marcosranes/Desktop/Tutorials/project1'
 ```
  
-### As you can see, for having things working fine on Git, you'll need at least, 1 file do add here, and a first commit.. so, let's make it.
+### As you can see, for having things working fine on Git, you'll need at least one file to add here, and also a first commit. So, let's proceed to make it...
  
-I'm going to delete the project1 and create a new one
+Well, I'm going to delete the project1 and create a new one
 
 <span style='color:#fff; font-family: Dejavu Sans Mono; font-size: 1.1em;'>- Path: /home/marcosranes/Desktop/Tutorials/project1</span>
 ### ` rm -rf ../project1/ ` and ` cd .. `
