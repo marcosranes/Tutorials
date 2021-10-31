@@ -538,3 +538,48 @@ Branch 'master' set up to track remote branch 'master' from 'origin'.
 * master
   remotes/origin/master
 ```
+# git pull
+Once you have made changes from your remote repository in GitHub, proceed for running these commands leaving your 
+branches aligned both remote (GitHub) and local (Git), and get to understand that Git and GitHub aren't the same brand.
+### ` $ git status `
+```shell
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+```
+Firstly investigate the git status in order to avoid conflicts, your local branch mustn't have either pending actions 
+or commits. Its working tree has to be clean. 
+### ` $ git remote update --prune `
+```shell
+Fetching origin
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 791 bytes | 791.00 KiB/s, done.
+From github.com:marcosranes/Tutorials
+   e0be795..c2f5a7d  master     -> origin/master
+```
+### ` $ git status `
+```shell
+On branch master
+Your branch is behind 'origin/master' by 1 commit, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+nothing to commit, working tree clean
+```
+### ` $ git pull `
+```shell
+Updating e0be795..c2f5a7d
+Fast-forward
+ Git.md | 1 +
+ 1 file changed, 1 insertion(+)
+```
+### ` $ git status `
+```shell
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+```
