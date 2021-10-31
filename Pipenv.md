@@ -929,7 +929,7 @@ marcosranes@ubuntu21-vbox:~/Desktop/Tutorials$  . /home/marcosranes/Desktop/Tuto
 ```
 As you can see, it should call `source $PATH/.venv/bin/activate` for you.\
 Note: One substitute for the `source` command is `.` and spacing after that...\
-(e.g. `source .venv/bin/activate`, thus: `. .venv/bin/activate`), and realize that the command bellow does exactly this.
+(e.g. `source .venv/bin/activate`, thus: `. .venv/bin/activate`), and realize through its output that the above command does exactly as explained here.
 
 So, let's proceed to some command lines
 
