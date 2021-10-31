@@ -914,7 +914,7 @@ python_version = "3.9"
   
 As you can see the Pipenv's virtual environment uses to bring a too populated list of folders and files. You don't need to worry about this, it's just the abstraction party, and you won't need this to make any changes, all things are set up for you and ready to use.
 
-#Installing and Removing Dependencies (PIPENV)
+# Installing and Removing Dependencies (PIPENV)
 
 Firstly, make sure you're under this environment.
 ```shell
