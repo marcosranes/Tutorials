@@ -470,3 +470,70 @@ Changes to be committed:
         new file:   myscript.py
         new file:   myscript.sh
 ```
+
+### ` $ git commit -m "initial commit" `
+```
+[master (root-commit) 6df60ad] initial commit
+ 19 files changed, 3382 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 Git.md
+ create mode 100644 Pipenv.md
+ create mode 100644 Pipfile
+ create mode 100644 Pipfile.lock
+ create mode 100644 Pyenv.md
+ create mode 100755 SHE-BANGs.md
+ create mode 100644 Tree_Command.md
+ create mode 100644 draft-README-pipenv.md
+ create mode 120000 draft-README.md
+ create mode 100644 draft-README1.md
+ create mode 100644 draft-README3.md
+ create mode 100644 draft-README4.md
+ create mode 100644 draft-README5.md
+ create mode 100644 draft-README6.md
+ create mode 100644 draft-README7.md
+ create mode 100644 draft-README8.md
+ create mode 100755 myscript.py
+ create mode 100755 myscript.sh
+```
+
+### ` $ git status `
+```
+On branch master
+nothing to commit, working tree clean
+```
+
+### ` $ git log `
+```
+commit 6df60adbb0c558cc6e36a46b972565d2d742bde5
+Author: marcosranes <marcosranes@gmail.com>
+Date:   Sun Oct 31 17:27:29 2021 -0300
+
+    initial commit
+```
+
+### ` $ git remote -v `
+
+### ` $ git remote add origin git@github.com:marcosranes/Tutorials.git `
+
+### ` $ git remote -v `
+```
+origin	git@github.com:marcosranes/Tutorials.git (fetch)
+origin	git@github.com:marcosranes/Tutorials.git (push)
+```
+### ` $ git push -u origin master `
+```
+Enumerating objects: 21, done.
+Counting objects: 100% (21/21), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (18/18), done.
+Writing objects: 100% (21/21), 29.27 KiB | 9.76 MiB/s, done.
+Total 21 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:marcosranes/Tutorials.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+```
+### ` $ git branch -a `
+```
+* master
+  remotes/origin/master
+```
