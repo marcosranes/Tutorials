@@ -1,4 +1,3 @@
-
 ## ` $ date `
 <span style='color:#fff; font-family: Dejavu Sans Mono; font-size: 1.1em;'>- Path: /home/marcosranes/Desktop/Tutorials</span>
 ```
