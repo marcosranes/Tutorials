@@ -65,7 +65,7 @@ fatal: Couldn't look up commit object for HEAD
 error: Cannot delete branch 'developer' checked out at '/home/marcosranes/Desktop/Tutorials/project1'
 ```
  
-### As you can see, for having things working fine on Git, you'll need at least one file to add here, and also a first commit. So, let's proceed to make it...
+### To make things work on Git, it is essential to add at least one file to this directory, as well as to commit the first change. So, let's move on to the next step.
  
 Well, I'm going to delete the project1 and create a new one
 
