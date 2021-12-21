@@ -1,0 +1,1305 @@
+
+## ` $ date `
+```
+Tue Dec 21 12:31:15 PM -03 2021
+```
+ 
+# How to install MySQL server on Ubuntu 20.04 LTS
+ 
+How do I install MySQL server 8.0 on Ubuntu 20.04 LTS Linux server? How can I add a new MySQL user and database on the newly set up Ubuntu server?
+ 
+MySQL version 8.0 is a free and open-source database system used by most web applications and sites on the Internet. Typically MySQL is part of the LAMP (Linux, Apache, MySQL, Perl/Python/PHP) stack. Popular opensource software such as WordPress, MediaWiki, and others heavily used by MySQL as a database storage engine. Let us see how to install MySQL server version 8.x on Ubuntu 20.04 LTS Linux server for your web apps or blog system.
+
+## ` $ sudo apt update && sudo apt upgrade `
+```
+Hit:1 https://download.docker.com/linux/ubuntu impish InRelease
+Hit:2 https://linux.teamviewer.com/deb stable InRelease
+Hit:3 http://us.archive.ubuntu.com/ubuntu impish InRelease
+Hit:4 https://dl.google.com/linux/chrome/deb stable InRelease
+Hit:5 http://packages.microsoft.com/repos/code stable InRelease
+Hit:6 http://us.archive.ubuntu.com/ubuntu impish-updates InRelease
+Hit:7 http://us.archive.ubuntu.com/ubuntu impish-backports InRelease
+Hit:8 http://us.archive.ubuntu.com/ubuntu impish-security InRelease
+Reading package lists...
+Building dependency tree...
+Reading state information...
+All packages are up to date.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  chromium-codecs-ffmpeg-extra gstreamer1.0-vaapi
+  libgstreamer-plugins-bad1.0-0 libva-wayland2
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+```
+ 
+## Step 1 – Installing MySQL server
+ 
+The command below allows us seaching for mysql-server package in the repository index
+
+### ` $ apt search mysql-server `
+```
+Sorting... Done
+Full Text Search... Done
+default-mysql-server/impish,impish 1.0.5ubuntu2 all
+  MySQL database server binaries and system database setup (metapackage)
+
+default-mysql-server-core/impish,impish 1.0.5ubuntu2 all
+  MySQL database server binaries (metapackage)
+
+mysql-server/impish-updates,impish-updates,impish-security,impish-security 8.0.27-0ubuntu0.21.10.1 all
+  MySQL database server (metapackage depending on the latest version)
+
+mysql-server-8.0/impish-updates,impish-security 8.0.27-0ubuntu0.21.10.1 amd64
+  MySQL database server binaries and system database setup
+
+mysql-server-core-8.0/impish-updates,impish-security 8.0.27-0ubuntu0.21.10.1 amd64
+  MySQL database server binaries
+
+```
+
+### ` $ sudo apt info mysql-server `
+```
+Package: mysql-server
+Version: 8.0.27-0ubuntu0.21.10.1
+Priority: optional
+Section: database
+Source: mysql-8.0
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian MySQL Maintainers <pkg-mysql-maint@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 110 kB
+Depends: mysql-server-8.0
+Homepage: http://dev.mysql.com/
+Task: lamp-server
+Download-Size: 9,536 B
+APT-Sources: http://us.archive.ubuntu.com/ubuntu impish-updates/main amd64 Packages
+Description: MySQL database server (metapackage depending on the latest version)
+ This is an empty package that depends on the current "best" version of
+ mysql-server (currently mysql-server-8.0), as determined by the MySQL
+ maintainers. Install this package if in doubt about which MySQL
+ version you need. That will install the version recommended by the
+ package maintainers.
+ .
+ MySQL is a fast, stable and true multi-user, multi-threaded SQL database
+ server. SQL (Structured Query Language) is the most popular database query
+ language in the world. The main goals of MySQL are speed, robustness and
+ ease of use.
+ 
+N: There is 1 additional record. Please use the '-a' switch to see it
+```
+
+### ` $ sudo apt info mysql-server -a `
+```
+Package: mysql-server
+Version: 8.0.27-0ubuntu0.21.10.1
+Priority: optional
+Section: database
+Source: mysql-8.0
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian MySQL Maintainers <pkg-mysql-maint@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 110 kB
+Depends: mysql-server-8.0
+Homepage: http://dev.mysql.com/
+Task: lamp-server
+Download-Size: 9,536 B
+APT-Sources: http://us.archive.ubuntu.com/ubuntu impish-updates/main amd64 Packages
+Description: MySQL database server (metapackage depending on the latest version)
+ This is an empty package that depends on the current "best" version of
+ mysql-server (currently mysql-server-8.0), as determined by the MySQL
+ maintainers. Install this package if in doubt about which MySQL
+ version you need. That will install the version recommended by the
+ package maintainers.
+ .
+ MySQL is a fast, stable and true multi-user, multi-threaded SQL database
+ server. SQL (Structured Query Language) is the most popular database query
+ language in the world. The main goals of MySQL are speed, robustness and
+ ease of use.
+
+Package: mysql-server
+Version: 8.0.26-0ubuntu1
+Priority: optional
+Section: database
+Source: mysql-8.0
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian MySQL Maintainers <pkg-mysql-maint@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 110 kB
+Depends: mysql-server-8.0
+Homepage: http://dev.mysql.com/
+Task: lamp-server
+Download-Size: 9,532 B
+APT-Sources: http://us.archive.ubuntu.com/ubuntu impish/main amd64 Packages
+Description: MySQL database server (metapackage depending on the latest version)
+ This is an empty package that depends on the current "best" version of
+ mysql-server (currently mysql-server-8.0), as determined by the MySQL
+ maintainers. Install this package if in doubt about which MySQL
+ version you need. That will install the version recommended by the
+ package maintainers.
+ .
+ MySQL is a fast, stable and true multi-user, multi-threaded SQL database
+ server. SQL (Structured Query Language) is the most popular database query
+ language in the world. The main goals of MySQL are speed, robustness and
+ ease of use.
+
+```
+ 
+### Install it on Ubuntu 20.04 LTS:
+
+### ` $ sudo apt install mysql-server `
+```
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  chromium-codecs-ffmpeg-extra gstreamer1.0-vaapi
+  libgstreamer-plugins-bad1.0-0 libva-wayland2
+Use 'sudo apt autoremove' to remove them.
+The following additional packages will be installed:
+  libaio1 libcgi-fast-perl libcgi-pm-perl libevent-core-2.1-7
+  libevent-pthreads-2.1-7 libfcgi-bin libfcgi-perl libfcgi0ldbl
+  libhtml-template-perl libmecab2 libprotobuf-lite23 mecab-ipadic
+  mecab-ipadic-utf8 mecab-utils mysql-client-8.0 mysql-client-core-8.0
+  mysql-common mysql-server-8.0 mysql-server-core-8.0
+Suggested packages:
+  libipc-sharedcache-perl mailx tinyca
+The following NEW packages will be installed:
+  libaio1 libcgi-fast-perl libcgi-pm-perl libevent-core-2.1-7
+  libevent-pthreads-2.1-7 libfcgi-bin libfcgi-perl libfcgi0ldbl
+  libhtml-template-perl libmecab2 libprotobuf-lite23 mecab-ipadic
+  mecab-ipadic-utf8 mecab-utils mysql-client-8.0 mysql-client-core-8.0
+  mysql-common mysql-server mysql-server-8.0 mysql-server-core-8.0
+0 upgraded, 20 newly installed, 0 to remove and 0 not upgraded.
+Need to get 28.5 MB of archives.
+After this operation, 239 MB of additional disk space will be used.
+Do you want to continue? [Y/n]
+```
+Or, we can define the -y parameter, which stands for yes, case we don't want it to ask us through the installation.
+
+# ` $ sudo apt install mysql-server -y `
+```
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  chromium-codecs-ffmpeg-extra gstreamer1.0-vaapi
+  libgstreamer-plugins-bad1.0-0 libva-wayland2
+Use 'sudo apt autoremove' to remove them.
+The following additional packages will be installed:
+  libaio1 libcgi-fast-perl libcgi-pm-perl libevent-core-2.1-7
+  libevent-pthreads-2.1-7 libfcgi-bin libfcgi-perl libfcgi0ldbl
+  libhtml-template-perl libmecab2 libprotobuf-lite23 mecab-ipadic
+  mecab-ipadic-utf8 mecab-utils mysql-client-8.0 mysql-client-core-8.0
+  mysql-common mysql-server-8.0 mysql-server-core-8.0
+Suggested packages:
+  libipc-sharedcache-perl mailx tinyca
+The following NEW packages will be installed:
+  libaio1 libcgi-fast-perl libcgi-pm-perl libevent-core-2.1-7
+  libevent-pthreads-2.1-7 libfcgi-bin libfcgi-perl libfcgi0ldbl
+  libhtml-template-perl libmecab2 libprotobuf-lite23 mecab-ipadic
+  mecab-ipadic-utf8 mecab-utils mysql-client-8.0 mysql-client-core-8.0
+  mysql-common mysql-server mysql-server-8.0 mysql-server-core-8.0
+0 upgraded, 20 newly installed, 0 to remove and 0 not upgraded.
+Need to get 28.5 MB of archives.
+After this operation, 239 MB of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu impish/main amd64 mysql-common all 5.8+1.0.5ubuntu2 [7,496 B]
+Get:2 http://us.archive.ubuntu.com/ubuntu impish-updates/main amd64 mysql-client-core-8.0 amd64 8.0.27-0ubuntu0.21.10.1 [2,734 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu impish-updates/main amd64 mysql-client-8.0 amd64 8.0.27-0ubuntu0.21.10.1 [22.7 kB]
+Get:4 http://us.archive.ubuntu.com/ubuntu impish/main amd64 libaio1 amd64 0.3.112-9ubuntu1 [6,972 B]
+Get:5 http://us.archive.ubuntu.com/ubuntu impish/main amd64 libevent-core-2.1-7 amd64 2.1.12-stable-1 [89.4 kB]
+Get:6 http://us.archive.ubuntu.com/ubuntu impish/main amd64 libevent-pthreads-2.1-7 amd64 2.1.12-stable-1 [7,364 B]
+Get:7 http://us.archive.ubuntu.com/ubuntu impish/main amd64 libmecab2 amd64 0.996-14build4 [199 kB]
+Get:8 http://us.archive.ubuntu.com/ubuntu impish/main amd64 libprotobuf-lite23 amd64 3.12.4-1ubuntu3 [209 kB]
+Get:9 http://us.archive.ubuntu.com/ubuntu impish-updates/main amd64 mysql-server-core-8.0 amd64 8.0.27-0ubuntu0.21.10.1 [16.8 MB]
+Get:10 http://us.archive.ubuntu.com/ubuntu impish-updates/main amd64 mysql-server-8.0 amd64 8.0.27-0ubuntu0.21.10.1 [1,384 kB]
+Get:11 http://us.archive.ubuntu.com/ubuntu impish/main amd64 libcgi-pm-perl all 4.51-1 [186 kB]
+Get:12 http://us.archive.ubuntu.com/ubuntu impish/main amd64 libfcgi0ldbl amd64 2.4.2-2build1 [27.7 kB]
+Get:13 http://us.archive.ubuntu.com/ubuntu impish/main amd64 libfcgi-perl amd64 0.79+ds-2build1 [22.7 kB]
+Get:14 http://us.archive.ubuntu.com/ubuntu impish/main amd64 libcgi-fast-perl all 1:2.15-1 [10.5 kB]
+Get:15 http://us.archive.ubuntu.com/ubuntu impish/main amd64 libfcgi-bin amd64 2.4.2-2build1 [11.2 kB]
+Get:16 http://us.archive.ubuntu.com/ubuntu impish/main amd64 libhtml-template-perl all 2.97-1.1 [59.1 kB]
+Get:17 http://us.archive.ubuntu.com/ubuntu impish/main amd64 mecab-utils amd64 0.996-14build4 [4,860 B]
+Get:18 http://us.archive.ubuntu.com/ubuntu impish/main amd64 mecab-ipadic all 2.7.0-20070801+main-3 [6,718 kB]
+Get:19 http://us.archive.ubuntu.com/ubuntu impish/main amd64 mecab-ipadic-utf8 all 2.7.0-20070801+main-3 [4,384 B]
+Get:20 http://us.archive.ubuntu.com/ubuntu impish-updates/main amd64 mysql-server all 8.0.27-0ubuntu0.21.10.1 [9,536 B]
+Preconfiguring packages ...
+Fetched 28.5 MB in 25s (1,128 kB/s)
+Selecting previously unselected package mysql-common.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 206090 files and directories currently installed.)
+Preparing to unpack .../0-mysql-common_5.8+1.0.5ubuntu2_all.deb ...
+Unpacking mysql-common (5.8+1.0.5ubuntu2) ...
+Selecting previously unselected package mysql-client-core-8.0.
+Preparing to unpack .../1-mysql-client-core-8.0_8.0.27-0ubuntu0.21.10.1_amd64.deb ...
+Unpacking mysql-client-core-8.0 (8.0.27-0ubuntu0.21.10.1) ...
+Selecting previously unselected package mysql-client-8.0.
+Preparing to unpack .../2-mysql-client-8.0_8.0.27-0ubuntu0.21.10.1_amd64.deb ...
+Unpacking mysql-client-8.0 (8.0.27-0ubuntu0.21.10.1) ...
+Selecting previously unselected package libaio1:amd64.
+Preparing to unpack .../3-libaio1_0.3.112-9ubuntu1_amd64.deb ...
+Unpacking libaio1:amd64 (0.3.112-9ubuntu1) ...
+Selecting previously unselected package libevent-core-2.1-7:amd64.
+Preparing to unpack .../4-libevent-core-2.1-7_2.1.12-stable-1_amd64.deb ...
+Unpacking libevent-core-2.1-7:amd64 (2.1.12-stable-1) ...
+Selecting previously unselected package libevent-pthreads-2.1-7:amd64.
+Preparing to unpack .../5-libevent-pthreads-2.1-7_2.1.12-stable-1_amd64.deb ...
+Unpacking libevent-pthreads-2.1-7:amd64 (2.1.12-stable-1) ...
+Selecting previously unselected package libmecab2:amd64.
+Preparing to unpack .../6-libmecab2_0.996-14build4_amd64.deb ...
+Unpacking libmecab2:amd64 (0.996-14build4) ...
+Selecting previously unselected package libprotobuf-lite23:amd64.
+Preparing to unpack .../7-libprotobuf-lite23_3.12.4-1ubuntu3_amd64.deb ...
+Unpacking libprotobuf-lite23:amd64 (3.12.4-1ubuntu3) ...
+Selecting previously unselected package mysql-server-core-8.0.
+Preparing to unpack .../8-mysql-server-core-8.0_8.0.27-0ubuntu0.21.10.1_amd64.deb ...
+Unpacking mysql-server-core-8.0 (8.0.27-0ubuntu0.21.10.1) ...
+Setting up mysql-common (5.8+1.0.5ubuntu2) ...
+update-alternatives: using /etc/mysql/my.cnf.fallback to provide /etc/mysql/my.cnf (my.cnf) in auto mode
+Selecting previously unselected package mysql-server-8.0.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 206320 files and directories currently installed.)
+Preparing to unpack .../00-mysql-server-8.0_8.0.27-0ubuntu0.21.10.1_amd64.deb ...
+Unpacking mysql-server-8.0 (8.0.27-0ubuntu0.21.10.1) ...
+Selecting previously unselected package libcgi-pm-perl.
+Preparing to unpack .../01-libcgi-pm-perl_4.51-1_all.deb ...
+Unpacking libcgi-pm-perl (4.51-1) ...
+Selecting previously unselected package libfcgi0ldbl:amd64.
+Preparing to unpack .../02-libfcgi0ldbl_2.4.2-2build1_amd64.deb ...
+Unpacking libfcgi0ldbl:amd64 (2.4.2-2build1) ...
+Selecting previously unselected package libfcgi-perl:amd64.
+Preparing to unpack .../03-libfcgi-perl_0.79+ds-2build1_amd64.deb ...
+Unpacking libfcgi-perl:amd64 (0.79+ds-2build1) ...
+Selecting previously unselected package libcgi-fast-perl.
+Preparing to unpack .../04-libcgi-fast-perl_1%3a2.15-1_all.deb ...
+Unpacking libcgi-fast-perl (1:2.15-1) ...
+Selecting previously unselected package libfcgi-bin.
+Preparing to unpack .../05-libfcgi-bin_2.4.2-2build1_amd64.deb ...
+Unpacking libfcgi-bin (2.4.2-2build1) ...
+Selecting previously unselected package libhtml-template-perl.
+Preparing to unpack .../06-libhtml-template-perl_2.97-1.1_all.deb ...
+Unpacking libhtml-template-perl (2.97-1.1) ...
+Selecting previously unselected package mecab-utils.
+Preparing to unpack .../07-mecab-utils_0.996-14build4_amd64.deb ...
+Unpacking mecab-utils (0.996-14build4) ...
+Selecting previously unselected package mecab-ipadic.
+Preparing to unpack .../08-mecab-ipadic_2.7.0-20070801+main-3_all.deb ...
+Unpacking mecab-ipadic (2.7.0-20070801+main-3) ...
+Selecting previously unselected package mecab-ipadic-utf8.
+Preparing to unpack .../09-mecab-ipadic-utf8_2.7.0-20070801+main-3_all.deb ...
+Unpacking mecab-ipadic-utf8 (2.7.0-20070801+main-3) ...
+Selecting previously unselected package mysql-server.
+Preparing to unpack .../10-mysql-server_8.0.27-0ubuntu0.21.10.1_all.deb ...
+Unpacking mysql-server (8.0.27-0ubuntu0.21.10.1) ...
+Setting up libmecab2:amd64 (0.996-14build4) ...
+Setting up mysql-client-core-8.0 (8.0.27-0ubuntu0.21.10.1) ...
+Setting up libfcgi0ldbl:amd64 (2.4.2-2build1) ...
+Setting up libcgi-pm-perl (4.51-1) ...
+Setting up libfcgi-bin (2.4.2-2build1) ...
+Setting up libhtml-template-perl (2.97-1.1) ...
+Setting up libprotobuf-lite23:amd64 (3.12.4-1ubuntu3) ...
+Setting up mecab-utils (0.996-14build4) ...
+Setting up libevent-core-2.1-7:amd64 (2.1.12-stable-1) ...
+Setting up mysql-client-8.0 (8.0.27-0ubuntu0.21.10.1) ...
+Setting up libfcgi-perl:amd64 (0.79+ds-2build1) ...
+Setting up libaio1:amd64 (0.3.112-9ubuntu1) ...
+Setting up libevent-pthreads-2.1-7:amd64 (2.1.12-stable-1) ...
+Setting up mecab-ipadic (2.7.0-20070801+main-3) ...
+Compiling IPA dictionary for Mecab.  This takes long time...
+reading /usr/share/mecab/dic/ipadic/unk.def ... 40
+emitting double-array:   9% |###                                        | 
+emitting double-array:  18% |#######                                    | 
+emitting double-array:  27% |###########                                | 
+emitting double-array:  36% |###############                            | 
+emitting double-array:  45% |###################                        | 
+emitting double-array:  54% |#######################                    | 
+emitting double-array:  63% |###########################                | 
+emitting double-array:  72% |###############################            | 
+emitting double-array:  81% |###################################        | 
+emitting double-array:  90% |#######################################    | 
+emitting double-array: 100% |###########################################| 
+/usr/share/mecab/dic/ipadic/model.def is not found. skipped.
+reading /usr/share/mecab/dic/ipadic/Noun.csv ... 60477
+reading /usr/share/mecab/dic/ipadic/Auxil.csv ... 199
+reading /usr/share/mecab/dic/ipadic/Conjunction.csv ... 171
+reading /usr/share/mecab/dic/ipadic/Noun.verbal.csv ... 12146
+reading /usr/share/mecab/dic/ipadic/Interjection.csv ... 252
+reading /usr/share/mecab/dic/ipadic/Postp-col.csv ... 91
+reading /usr/share/mecab/dic/ipadic/Noun.adverbal.csv ... 795
+reading /usr/share/mecab/dic/ipadic/Noun.demonst.csv ... 120
+reading /usr/share/mecab/dic/ipadic/Noun.org.csv ... 16668
+reading /usr/share/mecab/dic/ipadic/Verb.csv ... 130750
+reading /usr/share/mecab/dic/ipadic/Adj.csv ... 27210
+reading /usr/share/mecab/dic/ipadic/Noun.place.csv ... 72999
+reading /usr/share/mecab/dic/ipadic/Noun.adjv.csv ... 3328
+reading /usr/share/mecab/dic/ipadic/Noun.name.csv ... 34202
+reading /usr/share/mecab/dic/ipadic/Adnominal.csv ... 135
+reading /usr/share/mecab/dic/ipadic/Prefix.csv ... 221
+reading /usr/share/mecab/dic/ipadic/Noun.nai.csv ... 42
+reading /usr/share/mecab/dic/ipadic/Symbol.csv ... 208
+reading /usr/share/mecab/dic/ipadic/Noun.number.csv ... 42
+reading /usr/share/mecab/dic/ipadic/Filler.csv ... 19
+reading /usr/share/mecab/dic/ipadic/Noun.proper.csv ... 27328
+reading /usr/share/mecab/dic/ipadic/Postp.csv ... 146
+reading /usr/share/mecab/dic/ipadic/Suffix.csv ... 1393
+reading /usr/share/mecab/dic/ipadic/Noun.others.csv ... 151
+reading /usr/share/mecab/dic/ipadic/Adverb.csv ... 3032
+reading /usr/share/mecab/dic/ipadic/Others.csv ... 2
+emitting double-array:   0% |                                           | 
+emitting double-array:   1% |                                           | 
+emitting double-array:   2% |                                           | 
+emitting double-array:   3% |#                                          | 
+emitting double-array:   4% |#                                          | 
+emitting double-array:   5% |##                                         | 
+emitting double-array:   6% |##                                         | 
+emitting double-array:   7% |###                                        | 
+emitting double-array:   8% |###                                        | 
+emitting double-array:   9% |###                                        | 
+emitting double-array:  10% |####                                       | 
+emitting double-array:  11% |####                                       | 
+emitting double-array:  12% |#####                                      | 
+emitting double-array:  13% |#####                                      | 
+emitting double-array:  14% |######                                     | 
+emitting double-array:  15% |######                                     | 
+emitting double-array:  16% |######                                     | 
+emitting double-array:  17% |#######                                    | 
+emitting double-array:  18% |#######                                    | 
+emitting double-array:  19% |########                                   | 
+emitting double-array:  20% |########                                   | 
+emitting double-array:  21% |#########                                  | 
+emitting double-array:  22% |#########                                  | 
+emitting double-array:  23% |#########                                  | 
+emitting double-array:  24% |##########                                 | 
+emitting double-array:  25% |##########                                 | 
+emitting double-array:  26% |###########                                | 
+emitting double-array:  27% |###########                                | 
+emitting double-array:  28% |############                               | 
+emitting double-array:  29% |############                               | 
+emitting double-array:  30% |############                               | 
+emitting double-array:  31% |#############                              | 
+emitting double-array:  32% |#############                              | 
+emitting double-array:  33% |##############                             | 
+emitting double-array:  34% |##############                             | 
+emitting double-array:  35% |###############                            | 
+emitting double-array:  36% |###############                            | 
+emitting double-array:  37% |###############                            | 
+emitting double-array:  38% |################                           | 
+emitting double-array:  39% |################                           | 
+emitting double-array:  40% |#################                          | 
+emitting double-array:  41% |#################                          | 
+emitting double-array:  42% |##################                         | 
+emitting double-array:  43% |##################                         | 
+emitting double-array:  44% |##################                         | 
+emitting double-array:  45% |###################                        | 
+emitting double-array:  46% |###################                        | 
+emitting double-array:  47% |####################                       | 
+emitting double-array:  48% |####################                       | 
+emitting double-array:  49% |#####################                      | 
+emitting double-array:  50% |#####################                      | 
+emitting double-array:  51% |#####################                      | 
+emitting double-array:  52% |######################                     | 
+emitting double-array:  53% |######################                     | 
+emitting double-array:  54% |#######################                    | 
+emitting double-array:  55% |#######################                    | 
+emitting double-array:  56% |########################                   | 
+emitting double-array:  57% |########################                   | 
+emitting double-array:  58% |########################                   | 
+emitting double-array:  59% |#########################                  | 
+emitting double-array:  60% |#########################                  | 
+emitting double-array:  61% |##########################                 | 
+emitting double-array:  62% |##########################                 | 
+emitting double-array:  63% |###########################                | 
+emitting double-array:  64% |###########################                | 
+emitting double-array:  65% |###########################                | 
+emitting double-array:  66% |############################               | 
+emitting double-array:  67% |############################               | 
+emitting double-array:  68% |#############################              | 
+emitting double-array:  69% |#############################              | 
+emitting double-array:  70% |##############################             | 
+emitting double-array:  71% |##############################             | 
+emitting double-array:  72% |##############################             | 
+emitting double-array:  73% |###############################            | 
+emitting double-array:  74% |###############################            | 
+emitting double-array:  75% |################################           | 
+emitting double-array:  76% |################################           | 
+emitting double-array:  77% |#################################          | 
+emitting double-array:  78% |#################################          | 
+emitting double-array:  79% |#################################          | 
+emitting double-array:  80% |##################################         | 
+emitting double-array:  81% |##################################         | 
+emitting double-array:  82% |###################################        | 
+emitting double-array:  83% |###################################        | 
+emitting double-array:  84% |####################################       | 
+emitting double-array:  85% |####################################       | 
+emitting double-array:  86% |####################################       | 
+emitting double-array:  87% |#####################################      | 
+emitting double-array:  88% |#####################################      | 
+emitting double-array:  89% |######################################     | 
+emitting double-array:  90% |######################################     | 
+emitting double-array:  91% |#######################################    | 
+emitting double-array:  92% |#######################################    | 
+emitting double-array:  93% |#######################################    | 
+emitting double-array:  94% |########################################   | 
+emitting double-array:  95% |########################################   | 
+emitting double-array:  96% |#########################################  | 
+emitting double-array:  97% |#########################################  | 
+emitting double-array:  98% |########################################## | 
+emitting double-array:  99% |########################################## | 
+emitting double-array: 100% |###########################################| 
+reading /usr/share/mecab/dic/ipadic/matrix.def ... 1316x1316
+emitting matrix      :   0% |                                           | 
+emitting matrix      :   1% |                                           | 
+emitting matrix      :   2% |                                           | 
+emitting matrix      :   3% |#                                          | 
+emitting matrix      :   4% |#                                          | 
+emitting matrix      :   5% |##                                         | 
+emitting matrix      :   6% |##                                         | 
+emitting matrix      :   7% |###                                        | 
+emitting matrix      :   8% |###                                        | 
+emitting matrix      :   9% |###                                        | 
+emitting matrix      :  10% |####                                       | 
+emitting matrix      :  11% |####                                       | 
+emitting matrix      :  12% |#####                                      | 
+emitting matrix      :  13% |#####                                      | 
+emitting matrix      :  14% |######                                     | 
+emitting matrix      :  15% |######                                     | 
+emitting matrix      :  16% |######                                     | 
+emitting matrix      :  17% |#######                                    | 
+emitting matrix      :  18% |#######                                    | 
+emitting matrix      :  19% |########                                   | 
+emitting matrix      :  20% |########                                   | 
+emitting matrix      :  21% |#########                                  | 
+emitting matrix      :  22% |#########                                  | 
+emitting matrix      :  23% |#########                                  | 
+emitting matrix      :  24% |##########                                 | 
+emitting matrix      :  25% |##########                                 | 
+emitting matrix      :  26% |###########                                | 
+emitting matrix      :  27% |###########                                | 
+emitting matrix      :  28% |############                               | 
+emitting matrix      :  29% |############                               | 
+emitting matrix      :  30% |############                               | 
+emitting matrix      :  31% |#############                              | 
+emitting matrix      :  32% |#############                              | 
+emitting matrix      :  33% |##############                             | 
+emitting matrix      :  34% |##############                             | 
+emitting matrix      :  35% |###############                            | 
+emitting matrix      :  36% |###############                            | 
+emitting matrix      :  37% |###############                            | 
+emitting matrix      :  38% |################                           | 
+emitting matrix      :  39% |################                           | 
+emitting matrix      :  40% |#################                          | 
+emitting matrix      :  41% |#################                          | 
+emitting matrix      :  42% |##################                         | 
+emitting matrix      :  43% |##################                         | 
+emitting matrix      :  44% |##################                         | 
+emitting matrix      :  45% |###################                        | 
+emitting matrix      :  46% |###################                        | 
+emitting matrix      :  47% |####################                       | 
+emitting matrix      :  48% |####################                       | 
+emitting matrix      :  49% |#####################                      | 
+emitting matrix      :  50% |#####################                      | 
+emitting matrix      :  51% |#####################                      | 
+emitting matrix      :  52% |######################                     | 
+emitting matrix      :  53% |######################                     | 
+emitting matrix      :  54% |#######################                    | 
+emitting matrix      :  55% |#######################                    | 
+emitting matrix      :  56% |########################                   | 
+emitting matrix      :  57% |########################                   | 
+emitting matrix      :  58% |########################                   | 
+emitting matrix      :  59% |#########################                  | 
+emitting matrix      :  60% |#########################                  | 
+emitting matrix      :  61% |##########################                 | 
+emitting matrix      :  62% |##########################                 | 
+emitting matrix      :  63% |###########################                | 
+emitting matrix      :  64% |###########################                | 
+emitting matrix      :  65% |###########################                | 
+emitting matrix      :  66% |############################               | 
+emitting matrix      :  67% |############################               | 
+emitting matrix      :  68% |#############################              | 
+emitting matrix      :  69% |#############################              | 
+emitting matrix      :  70% |##############################             | 
+emitting matrix      :  71% |##############################             | 
+emitting matrix      :  72% |##############################             | 
+emitting matrix      :  73% |###############################            | 
+emitting matrix      :  74% |###############################            | 
+emitting matrix      :  75% |################################           | 
+emitting matrix      :  76% |################################           | 
+emitting matrix      :  77% |#################################          | 
+emitting matrix      :  78% |#################################          | 
+emitting matrix      :  79% |#################################          | 
+emitting matrix      :  80% |##################################         | 
+emitting matrix      :  81% |##################################         | 
+emitting matrix      :  82% |###################################        | 
+emitting matrix      :  83% |###################################        | 
+emitting matrix      :  84% |####################################       | 
+emitting matrix      :  85% |####################################       | 
+emitting matrix      :  86% |####################################       | 
+emitting matrix      :  87% |#####################################      | 
+emitting matrix      :  88% |#####################################      | 
+emitting matrix      :  89% |######################################     | 
+emitting matrix      :  90% |######################################     | 
+emitting matrix      :  91% |#######################################    | 
+emitting matrix      :  92% |#######################################    | 
+emitting matrix      :  93% |#######################################    | 
+emitting matrix      :  94% |########################################   | 
+emitting matrix      :  95% |########################################   | 
+emitting matrix      :  96% |#########################################  | 
+emitting matrix      :  97% |#########################################  | 
+emitting matrix      :  98% |########################################## | 
+emitting matrix      :  99% |########################################## | 
+emitting matrix      : 100% |###########################################| 
+
+done!
+update-alternatives: using /var/lib/mecab/dic/ipadic to provide /var/lib/mecab/dic/debian (mecab-dictionary) in auto mode
+Setting up libcgi-fast-perl (1:2.15-1) ...
+Setting up mysql-server-core-8.0 (8.0.27-0ubuntu0.21.10.1) ...
+Setting up mecab-ipadic-utf8 (2.7.0-20070801+main-3) ...
+Compiling IPA dictionary for Mecab.  This takes long time...
+reading /usr/share/mecab/dic/ipadic/unk.def ... 40
+emitting double-array:   9% |###                                        | 
+emitting double-array:  18% |#######                                    | 
+emitting double-array:  27% |###########                                | 
+emitting double-array:  36% |###############                            | 
+emitting double-array:  45% |###################                        | 
+emitting double-array:  54% |#######################                    | 
+emitting double-array:  63% |###########################                | 
+emitting double-array:  72% |###############################            | 
+emitting double-array:  81% |###################################        | 
+emitting double-array:  90% |#######################################    | 
+emitting double-array: 100% |###########################################| 
+/usr/share/mecab/dic/ipadic/model.def is not found. skipped.
+reading /usr/share/mecab/dic/ipadic/Noun.csv ... 60477
+reading /usr/share/mecab/dic/ipadic/Auxil.csv ... 199
+reading /usr/share/mecab/dic/ipadic/Conjunction.csv ... 171
+reading /usr/share/mecab/dic/ipadic/Noun.verbal.csv ... 12146
+reading /usr/share/mecab/dic/ipadic/Interjection.csv ... 252
+reading /usr/share/mecab/dic/ipadic/Postp-col.csv ... 91
+reading /usr/share/mecab/dic/ipadic/Noun.adverbal.csv ... 795
+reading /usr/share/mecab/dic/ipadic/Noun.demonst.csv ... 120
+reading /usr/share/mecab/dic/ipadic/Noun.org.csv ... 16668
+reading /usr/share/mecab/dic/ipadic/Verb.csv ... 130750
+reading /usr/share/mecab/dic/ipadic/Adj.csv ... 27210
+reading /usr/share/mecab/dic/ipadic/Noun.place.csv ... 72999
+reading /usr/share/mecab/dic/ipadic/Noun.adjv.csv ... 3328
+reading /usr/share/mecab/dic/ipadic/Noun.name.csv ... 34202
+reading /usr/share/mecab/dic/ipadic/Adnominal.csv ... 135
+reading /usr/share/mecab/dic/ipadic/Prefix.csv ... 221
+reading /usr/share/mecab/dic/ipadic/Noun.nai.csv ... 42
+reading /usr/share/mecab/dic/ipadic/Symbol.csv ... 208
+reading /usr/share/mecab/dic/ipadic/Noun.number.csv ... 42
+reading /usr/share/mecab/dic/ipadic/Filler.csv ... 19
+reading /usr/share/mecab/dic/ipadic/Noun.proper.csv ... 27328
+reading /usr/share/mecab/dic/ipadic/Postp.csv ... 146
+reading /usr/share/mecab/dic/ipadic/Suffix.csv ... 1393
+reading /usr/share/mecab/dic/ipadic/Noun.others.csv ... 151
+reading /usr/share/mecab/dic/ipadic/Adverb.csv ... 3032
+reading /usr/share/mecab/dic/ipadic/Others.csv ... 2
+emitting double-array:   0% |                                           | 
+emitting double-array:   1% |                                           | 
+emitting double-array:   2% |                                           | 
+emitting double-array:   3% |#                                          | 
+emitting double-array:   4% |#                                          | 
+emitting double-array:   5% |##                                         | 
+emitting double-array:   6% |##                                         | 
+emitting double-array:   7% |###                                        | 
+emitting double-array:   8% |###                                        | 
+emitting double-array:   9% |###                                        | 
+emitting double-array:  10% |####                                       | 
+emitting double-array:  11% |####                                       | 
+emitting double-array:  12% |#####                                      | 
+emitting double-array:  13% |#####                                      | 
+emitting double-array:  14% |######                                     | 
+emitting double-array:  15% |######                                     | 
+emitting double-array:  16% |######                                     | 
+emitting double-array:  17% |#######                                    | 
+emitting double-array:  18% |#######                                    | 
+emitting double-array:  19% |########                                   | 
+emitting double-array:  20% |########                                   | 
+emitting double-array:  21% |#########                                  | 
+emitting double-array:  22% |#########                                  | 
+emitting double-array:  23% |#########                                  | 
+emitting double-array:  24% |##########                                 | 
+emitting double-array:  25% |##########                                 | 
+emitting double-array:  26% |###########                                | 
+emitting double-array:  27% |###########                                | 
+emitting double-array:  28% |############                               | 
+emitting double-array:  29% |############                               | 
+emitting double-array:  30% |############                               | 
+emitting double-array:  31% |#############                              | 
+emitting double-array:  32% |#############                              | 
+emitting double-array:  33% |##############                             | 
+emitting double-array:  34% |##############                             | 
+emitting double-array:  35% |###############                            | 
+emitting double-array:  36% |###############                            | 
+emitting double-array:  37% |###############                            | 
+emitting double-array:  38% |################                           | 
+emitting double-array:  39% |################                           | 
+emitting double-array:  40% |#################                          | 
+emitting double-array:  41% |#################                          | 
+emitting double-array:  42% |##################                         | 
+emitting double-array:  43% |##################                         | 
+emitting double-array:  44% |##################                         | 
+emitting double-array:  45% |###################                        | 
+emitting double-array:  46% |###################                        | 
+emitting double-array:  47% |####################                       | 
+emitting double-array:  48% |####################                       | 
+emitting double-array:  49% |#####################                      | 
+emitting double-array:  50% |#####################                      | 
+emitting double-array:  51% |#####################                      | 
+emitting double-array:  52% |######################                     | 
+emitting double-array:  53% |######################                     | 
+emitting double-array:  54% |#######################                    | 
+emitting double-array:  55% |#######################                    | 
+emitting double-array:  56% |########################                   | 
+emitting double-array:  57% |########################                   | 
+emitting double-array:  58% |########################                   | 
+emitting double-array:  59% |#########################                  | 
+emitting double-array:  60% |#########################                  | 
+emitting double-array:  61% |##########################                 | 
+emitting double-array:  62% |##########################                 | 
+emitting double-array:  63% |###########################                | 
+emitting double-array:  64% |###########################                | 
+emitting double-array:  65% |###########################                | 
+emitting double-array:  66% |############################               | 
+emitting double-array:  67% |############################               | 
+emitting double-array:  68% |#############################              | 
+emitting double-array:  69% |#############################              | 
+emitting double-array:  70% |##############################             | 
+emitting double-array:  71% |##############################             | 
+emitting double-array:  72% |##############################             | 
+emitting double-array:  73% |###############################            | 
+emitting double-array:  74% |###############################            | 
+emitting double-array:  75% |################################           | 
+emitting double-array:  76% |################################           | 
+emitting double-array:  77% |#################################          | 
+emitting double-array:  78% |#################################          | 
+emitting double-array:  79% |#################################          | 
+emitting double-array:  80% |##################################         | 
+emitting double-array:  81% |##################################         | 
+emitting double-array:  82% |###################################        | 
+emitting double-array:  83% |###################################        | 
+emitting double-array:  84% |####################################       | 
+emitting double-array:  85% |####################################       | 
+emitting double-array:  86% |####################################       | 
+emitting double-array:  87% |#####################################      | 
+emitting double-array:  88% |#####################################      | 
+emitting double-array:  89% |######################################     | 
+emitting double-array:  90% |######################################     | 
+emitting double-array:  91% |#######################################    | 
+emitting double-array:  92% |#######################################    | 
+emitting double-array:  93% |#######################################    | 
+emitting double-array:  94% |########################################   | 
+emitting double-array:  95% |########################################   | 
+emitting double-array:  96% |#########################################  | 
+emitting double-array:  97% |#########################################  | 
+emitting double-array:  98% |########################################## | 
+emitting double-array:  99% |########################################## | 
+emitting double-array: 100% |###########################################| 
+reading /usr/share/mecab/dic/ipadic/matrix.def ... 1316x1316
+emitting matrix      :   0% |                                           | 
+emitting matrix      :   1% |                                           | 
+emitting matrix      :   2% |                                           | 
+emitting matrix      :   3% |#                                          | 
+emitting matrix      :   4% |#                                          | 
+emitting matrix      :   5% |##                                         | 
+emitting matrix      :   6% |##                                         | 
+emitting matrix      :   7% |###                                        | 
+emitting matrix      :   8% |###                                        | 
+emitting matrix      :   9% |###                                        | 
+emitting matrix      :  10% |####                                       | 
+emitting matrix      :  11% |####                                       | 
+emitting matrix      :  12% |#####                                      | 
+emitting matrix      :  13% |#####                                      | 
+emitting matrix      :  14% |######                                     | 
+emitting matrix      :  15% |######                                     | 
+emitting matrix      :  16% |######                                     | 
+emitting matrix      :  17% |#######                                    | 
+emitting matrix      :  18% |#######                                    | 
+emitting matrix      :  19% |########                                   | 
+emitting matrix      :  20% |########                                   | 
+emitting matrix      :  21% |#########                                  | 
+emitting matrix      :  22% |#########                                  | 
+emitting matrix      :  23% |#########                                  | 
+emitting matrix      :  24% |##########                                 | 
+emitting matrix      :  25% |##########                                 | 
+emitting matrix      :  26% |###########                                | 
+emitting matrix      :  27% |###########                                | 
+emitting matrix      :  28% |############                               | 
+emitting matrix      :  29% |############                               | 
+emitting matrix      :  30% |############                               | 
+emitting matrix      :  31% |#############                              | 
+emitting matrix      :  32% |#############                              | 
+emitting matrix      :  33% |##############                             | 
+emitting matrix      :  34% |##############                             | 
+emitting matrix      :  35% |###############                            | 
+emitting matrix      :  36% |###############                            | 
+emitting matrix      :  37% |###############                            | 
+emitting matrix      :  38% |################                           | 
+emitting matrix      :  39% |################                           | 
+emitting matrix      :  40% |#################                          | 
+emitting matrix      :  41% |#################                          | 
+emitting matrix      :  42% |##################                         | 
+emitting matrix      :  43% |##################                         | 
+emitting matrix      :  44% |##################                         | 
+emitting matrix      :  45% |###################                        | 
+emitting matrix      :  46% |###################                        | 
+emitting matrix      :  47% |####################                       | 
+emitting matrix      :  48% |####################                       | 
+emitting matrix      :  49% |#####################                      | 
+emitting matrix      :  50% |#####################                      | 
+emitting matrix      :  51% |#####################                      | 
+emitting matrix      :  52% |######################                     | 
+emitting matrix      :  53% |######################                     | 
+emitting matrix      :  54% |#######################                    | 
+emitting matrix      :  55% |#######################                    | 
+emitting matrix      :  56% |########################                   | 
+emitting matrix      :  57% |########################                   | 
+emitting matrix      :  58% |########################                   | 
+emitting matrix      :  59% |#########################                  | 
+emitting matrix      :  60% |#########################                  | 
+emitting matrix      :  61% |##########################                 | 
+emitting matrix      :  62% |##########################                 | 
+emitting matrix      :  63% |###########################                | 
+emitting matrix      :  64% |###########################                | 
+emitting matrix      :  65% |###########################                | 
+emitting matrix      :  66% |############################               | 
+emitting matrix      :  67% |############################               | 
+emitting matrix      :  68% |#############################              | 
+emitting matrix      :  69% |#############################              | 
+emitting matrix      :  70% |##############################             | 
+emitting matrix      :  71% |##############################             | 
+emitting matrix      :  72% |##############################             | 
+emitting matrix      :  73% |###############################            | 
+emitting matrix      :  74% |###############################            | 
+emitting matrix      :  75% |################################           | 
+emitting matrix      :  76% |################################           | 
+emitting matrix      :  77% |#################################          | 
+emitting matrix      :  78% |#################################          | 
+emitting matrix      :  79% |#################################          | 
+emitting matrix      :  80% |##################################         | 
+emitting matrix      :  81% |##################################         | 
+emitting matrix      :  82% |###################################        | 
+emitting matrix      :  83% |###################################        | 
+emitting matrix      :  84% |####################################       | 
+emitting matrix      :  85% |####################################       | 
+emitting matrix      :  86% |####################################       | 
+emitting matrix      :  87% |#####################################      | 
+emitting matrix      :  88% |#####################################      | 
+emitting matrix      :  89% |######################################     | 
+emitting matrix      :  90% |######################################     | 
+emitting matrix      :  91% |#######################################    | 
+emitting matrix      :  92% |#######################################    | 
+emitting matrix      :  93% |#######################################    | 
+emitting matrix      :  94% |########################################   | 
+emitting matrix      :  95% |########################################   | 
+emitting matrix      :  96% |#########################################  | 
+emitting matrix      :  97% |#########################################  | 
+emitting matrix      :  98% |########################################## | 
+emitting matrix      :  99% |########################################## | 
+emitting matrix      : 100% |###########################################| 
+
+done!
+update-alternatives: using /var/lib/mecab/dic/ipadic-utf8 to provide /var/lib/mecab/dic/debian (mecab-dictionary) in auto mode
+Setting up mysql-server-8.0 (8.0.27-0ubuntu0.21.10.1) ...
+update-alternatives: using /etc/mysql/mysql.cnf to provide /etc/mysql/my.cnf (my.cnf) in auto mode
+Renaming removed key_buffer and myisam-recover options (if present)
+mysqld will log errors to /var/log/mysql/error.log
+mysqld is running as pid 272185
+Created symlink /etc/systemd/system/multi-user.target.wants/mysql.service → /lib/systemd/system/mysql.service.
+Setting up mysql-server (8.0.27-0ubuntu0.21.10.1) ...
+Processing triggers for man-db (2.9.4-2) ...
+Processing triggers for libc-bin (2.34-0ubuntu3) ...
+```
+  
+## Step 2 – Securing MySQL server
+ 
+We need to secure our new MySQL server installation by running the following command:
+
+## ` $ sudo mysql_secure_installation `
+```
+Securing the MySQL server deployment.
+
+Connecting to MySQL using a blank password.
+
+VALIDATE PASSWORD COMPONENT can be used to test passwords
+and improve security. It checks the strength of password
+and allows the users to set only those passwords which are
+secure enough. Would you like to setup VALIDATE PASSWORD component?
+
+Press y|Y for Yes, any other key for No: Y
+
+There are three levels of password validation policy:
+
+LOW    Length >= 8
+MEDIUM Length >= 8, numeric, mixed case, and special characters
+STRONG Length >= 8, numeric, mixed case, special characters and dictionary                  file
+
+Please enter 0 = LOW, 1 = MEDIUM and 2 = STRONG: 1
+Please set the password for root here.
+
+New password: 
+
+Re-enter new password: 
+
+Estimated strength of the password: 50 
+Do you wish to continue with the password provided?(Press y|Y for Yes, any other key for No) : Y
+By default, a MySQL installation has an anonymous user,
+allowing anyone to log into MySQL without having to have
+a user account created for them. This is intended only for
+testing, and to make the installation go a bit smoother.
+You should remove them before moving into a production
+environment.
+
+Remove anonymous users? (Press y|Y for Yes, any other key for No) : Y
+Success.
+
+
+Normally, root should only be allowed to connect from
+'localhost'. This ensures that someone cannot guess at
+the root password from the network.
+
+Disallow root login remotely? (Press y|Y for Yes, any other key for No) : Y
+Success.
+
+By default, MySQL comes with a database named 'test' that
+anyone can access. This is also intended only for testing,
+and should be removed before moving into a production
+environment.
+
+
+Remove test database and access to it? (Press y|Y for Yes, any other key for No) : Y
+ - Dropping test database...
+Success.
+
+ - Removing privileges on test database...
+Success.
+
+Reloading the privilege tables will ensure that all changes
+made so far will take effect immediately.
+
+Reload privilege tables now? (Press y|Y for Yes, any other key for No) : Y
+Success.
+
+All done! 
+``` 
+## Step 3 – Enabling MySQL server at boot time
+ 
+Make sure our server start when Ubuntu 20.04 LTS boots:
+
+## ` $ sudo systemctl is-enabled mysql.service `
+```
+[sudo] password for marcosranes: 
+enabled
+```
+ 
+If not enabled, type the following command to enable the server:
+
+## ` $ sudo systemctl enabled mysql.service `
+```
+Unknown command verb enabled.
+``` 
+Verify server status by typing the following systemctl command:
+
+# ` $ sudo systemctl status mysql.service `
+```shell
+● mysql.service - MySQL Community Server
+     Loaded: loaded (/lib/systemd/system/mysql.service; enabled; vendor preset: enabled)
+     Active: active (running) since Tue 2021-12-21 13:12:04 -03; 39min ago
+    Process: 272380 ExecStartPre=/usr/share/mysql/mysql-systemd-start pre (code=exited, status=0/SUCCESS)
+   Main PID: 272389 (mysqld)
+     Status: "Server is operational"
+      Tasks: 39 (limit: 9151)
+     Memory: 352.8M
+        CPU: 6.737s
+     CGroup: /system.slice/mysql.service
+             └─272389 /usr/sbin/mysqld
+
+Dec 21 13:12:04 DV3500-Ubuntu systemd[1]: Starting MySQL Community Server...
+Dec 21 13:12:04 DV3500-Ubuntu systemd[1]: Started MySQL Community Server.
+```
+ 
+## Step 4 – Starting/Stopping/Restarting MySQL server
+ 
+We can control the MySQL server on Ubuntu using the command line option itself. Let us start it with
+
+## ` $ sudo systemctl start mysql.service `
+ 
+Stop the MySQL server, enter:
+
+## ` $ sudo systemctl stop mysql.service `
+ 
+So, after running the command above, lets call the status just to see it...
+
+## ` $ sudo systemctl status mysql.service `
+```
+○ mysql.service - MySQL Community Server
+     Loaded: loaded (/lib/systemd/system/mysql.service; enabled; vendor preset: enabled)
+     Active: inactive (dead) since Tue 2021-12-21 14:00:50 -03; 3min 13s ago
+    Process: 272380 ExecStartPre=/usr/share/mysql/mysql-systemd-start pre (code=exited, status=0/SUCCESS)
+    Process: 272389 ExecStart=/usr/sbin/mysqld (code=exited, status=0/SUCCESS)
+   Main PID: 272389 (code=exited, status=0/SUCCESS)
+     Status: "Server shutdown complete"
+        CPU: 8.388s
+
+Dec 21 13:12:04 DV3500-Ubuntu systemd[1]: Starting MySQL Community Server...
+Dec 21 13:12:04 DV3500-Ubuntu systemd[1]: Started MySQL Community Server.
+Dec 21 14:00:49 DV3500-Ubuntu systemd[1]: Stopping MySQL Community Server...
+Dec 21 14:00:50 DV3500-Ubuntu systemd[1]: mysql.service: Deactivated successfully.
+Dec 21 14:00:50 DV3500-Ubuntu systemd[1]: Stopped MySQL Community Server.
+Dec 21 14:00:50 DV3500-Ubuntu systemd[1]: mysql.service: Consumed 8.388s CPU time.
+```
+Also we have the command restart when it is needed:
+
+## ` $ sudo systemctl restart mysql.service `
+
+## ` $ sudo systemctl status mysql.service `
+```
+● mysql.service - MySQL Community Server
+     Loaded: loaded (/lib/systemd/system/mysql.service; enabled; vendor preset: enabled)
+     Active: active (running) since Tue 2021-12-21 14:07:55 -03; 54s ago
+    Process: 278818 ExecStartPre=/usr/share/mysql/mysql-systemd-start pre (code=exited, status=0/SUCCESS)
+   Main PID: 278826 (mysqld)
+     Status: "Server is operational"
+      Tasks: 38 (limit: 9151)
+     Memory: 354.8M
+        CPU: 601ms
+     CGroup: /system.slice/mysql.service
+             └─278826 /usr/sbin/mysqld
+
+Dec 21 14:07:55 DV3500-Ubuntu systemd[1]: Starting MySQL Community Server...
+Dec 21 14:07:55 DV3500-Ubuntu systemd[1]: Started MySQL Community Server.
+```
+ 
+__NOTE: When SQL-Server is stopped and the Restart command is given, the server is activate as well.__
+##
+## We can view the MySQL service log as follows using the journalctl command:
+
+# ` $ sudo journalctl -u mysql.service -xe `
+```
+-- Journal begins at Sat 2021-12-04 17:08:50 -03, ends at Tue 2021-12-21 14:22:52 -03. --
+Dec 21 13:12:04 DV3500-Ubuntu systemd[1]: Starting MySQL Community Server...
+░░ Subject: A start job for unit mysql.service has begun execution
+░░ Defined-By: systemd
+░░ Support: http://www.ubuntu.com/support
+░░ 
+░░ A start job for unit mysql.service has begun execution.
+░░ 
+░░ The job identifier is 43226.
+```
+
+# ` $ sudo tail -f /var/log/mysql/error.log `
+```
+2021-12-21T17:07:55.034565Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.27-0ubuntu0.21.10.1)  (Ubuntu).
+2021-12-21T17:07:55.362826Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.27-0ubuntu0.21.10.1) starting as process 278826
+2021-12-21T17:07:55.370677Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2021-12-21T17:07:55.468676Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2021-12-21T17:07:55.577170Z 0 [Warning] [MY-013746] [Server] A deprecated TLS version TLSv1 is enabled for channel mysql_main
+2021-12-21T17:07:55.577205Z 0 [Warning] [MY-013746] [Server] A deprecated TLS version TLSv1.1 is enabled for channel mysql_main
+2021-12-21T17:07:55.578111Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2021-12-21T17:07:55.578152Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2021-12-21T17:07:55.593113Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '127.0.0.1' port: 33060, socket: /var/run/mysqld/mysqlx.sock
+2021-12-21T17:07:55.593130Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.27-0ubuntu0.21.10.1'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  (Ubuntu).
+```
+## Step 5 – Login into MySQL server for testing purpose
+ 
+So far, we learned how to install, set up, secure, and start/stop the MySQL server version 8 on Ubuntu 20.04 LTS. It is time to log in as a root (admin) user. The syntax is:
+
+## ` $ mysql -u root -p `
+```
+Enter password: 
+ERROR 1698 (28000): Access denied for user 'root'@'localhost'
+```
+
+## ` $ sudo mysql -u root -p `
+```
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 20
+Server version: 8.0.27-0ubuntu0.21.10.1 (Ubuntu)
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> quit
+Bye
+```
+ 
+# let's a view of an instance of this service running, and take a look at some commands:
+```     
+(.venv) marcosranes@DV3500-Ubuntu:~/Desktop/Tutorials$ sudo mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 22
+Server version: 8.0.27-0ubuntu0.21.10.1 (Ubuntu)
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> SHOW VARIABLES LIKE "%version%";
++--------------------------+-------------------------------+
+| Variable_name            | Value                         |
++--------------------------+-------------------------------+
+| admin_tls_version        | TLSv1,TLSv1.1,TLSv1.2,TLSv1.3 |
+| immediate_server_version | 999999                        |
+| innodb_version           | 8.0.27                        |
+| original_server_version  | 999999                        |
+| protocol_version         | 10                            |
+| replica_type_conversions |                               |
+| slave_type_conversions   |                               |
+| tls_version              | TLSv1,TLSv1.1,TLSv1.2,TLSv1.3 |
+| version                  | 8.0.27-0ubuntu0.21.10.1       |
+| version_comment          | (Ubuntu)                      |
+| version_compile_machine  | x86_64                        |
+| version_compile_os       | Linux                         |
+| version_compile_zlib     | 1.2.11                        |
++--------------------------+-------------------------------+
+13 rows in set (0.00 sec)
+
+mysql> STATUS;
+--------------
+mysql  Ver 8.0.27-0ubuntu0.21.10.1 for Linux on x86_64 ((Ubuntu))
+
+Connection id:          22
+Current database:
+Current user:           root@localhost
+SSL:                    Not in use
+Current pager:          stdout
+Using outfile:          ''
+Using delimiter:        ;
+Server version:         8.0.27-0ubuntu0.21.10.1 (Ubuntu)
+Protocol version:       10
+Connection:             Localhost via UNIX socket
+Server characterset:    utf8mb4
+Db     characterset:    utf8mb4
+Client characterset:    utf8mb4
+Conn.  characterset:    utf8mb4
+UNIX socket:            /var/run/mysqld/mysqld.sock
+Binary data as:         Hexadecimal
+Uptime:                 39 min 25 sec
+
+Threads: 3  Questions: 20  Slow queries: 0  Opens: 134  Flush tables: 3  Open tables: 53  Queries per second avg: 0.008
+--------------
+
+mysql> QUIT;
+Bye
+(.venv) marcosranes@DV3500-Ubuntu:~/Desktop/Tutorials$ 
+```
+## Step 6 – Creating a new MySQL database and user/password
+Let create a new database called wpblog, type: ` mysql> CREATE DATABASE wpblog;`
+
+__Syntax:__ mysql> create database DATABASE_NAME; 
+```
+(.venv) marcosranes@DV3500-Ubuntu:~/Desktop/Tutorials$ sudo mysql -u root -p  
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 23
+Server version: 8.0.27-0ubuntu0.21.10.1 (Ubuntu)
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> CREATE DATABASE wpblog;
+Query OK, 1 row affected (0.06 sec)
+
+mysql> 
+```
+## Create a new user (only with local access) and grant privileges to this user on the new database.
+
+If your stack ships MySQL v8.x:
+```
+mysql> create user 'USER_NAME'@'localhost' identified by 'PASSWORD';
+mysql> grant all privileges on DATABASE_NAME.* TO 'USER_NAME'@'localhost';
+```
+If your stack ships an older version of MySQL:
+```
+mysql> grant all privileges on DATABASE_NAME.* TO 'USER_NAME'@'localhost' identified by 'PASSWORD';
+```
+As an instance, I’m going to create a new user named "wpuser" for our database called wpblog as follows:
+```
+mysql> create user wpuser@'localhost' identified by 'rene2537';
+ERROR 1819 (HY000): Your password does not satisfy the current policy requirements
+
+mysql> create user wpuser@'localhost' identified by 'Rene#2537';
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> 
+```
+Or, we can create a REMOTE user. After the '@', look at the placeholder '%' INSTEAD of the 'localhost' parameter...  
+```
+mysql> CREATE USER 'wpuser'@'%' IDENTIFIED BY 'Rene#1816';
+Query OK, 0 rows affected (0.01 sec)
+```
+```
+# Dica ERROR 1819 (HY000): Your password does not satisfy the current policy requirements
+Jhonata Lamim abril 11, 2018 8 Comments  mysql
+
+Por padrão no mysql o nível de segurança para senha vem definido como médio através do plugin validate_password e por isso podemos ter o erro ERROR 1819 (HY000) na definição de uma senha, caso ela não atenda os requisitos mínimos de segurança.
+mysql> create user lamim@'localhost' identified by 'lamim123';
+ERROR 1819 (HY000): Your password does not satisfy the current policy requirements
+mysql>
+Porém em ambientes de teste ou homologação podemos precisar definir uma senha que não tenha alta complexidade ou a aplicação pode exigir uma senha especifica que não atenda esses requisitos. Apesar de não ser recomendado, esse nível de validação pode ser alterado através do parâmetro validate_password_policy, definindo o mesmo para LOW ao invés de MEDIUM  ou HIGH.
+mysql> show global variables like 'validate_password%';
++--------------------------------------+--------+
+| Variable_name                        | Value  |
++--------------------------------------+--------+
+| validate_password_check_user_name    | OFF    |
+| validate_password_dictionary_file    |        |
+| validate_password_length             | 8      |
+| validate_password_mixed_case_count   | 1      |
+| validate_password_number_count       | 1      |
+| validate_password_policy             | MEDIUM |
+| validate_password_special_char_count | 1      |
++--------------------------------------+--------+
+7 rows in set (0.01 sec)
+
+mysql>
+Para alterar o parâmetro validate_password_policy, basta executar o comando abaixo.
+mysql>  SET GLOBAL validate_password_policy=LOW;
+Query OK, 0 rows affected (0.00 sec)
+Após a alteração do parametro, vamos testar a criação do usuário que anteriormente apresentou erro.
+mysql> create user lamim@'localhost' identified by 'lamim123';
+Query OK, 0 rows affected (0.41 sec)
+
+mysql>
+```
+ 
+## Finally, give permissions:
+```
+mysql> GRANT SELECT, INSERT, UPDATE, DELETE ON wpblog.* TO 'wpuser'@'%';
+Query OK, 0 rows affected (0.01 sec)
+```
+## Of course, I can grant ALL PRIVILEGES too as follows:
+```
+mysql> GRANT ALL PRIVILEGES ON wpblog.* TO 'wpuser'@'%';
+Query OK, 0 rows affected (0.01 sec)
+```
+## See MySQL users and their grants:
+mysql> SELECT user,host FROM mysql.user;
+```
+mysql> SELECT user,host FROM mysql.user;
++------------------+-----------+
+| user             | host      |
++------------------+-----------+
+| wpuser           | %         |
+| debian-sys-maint | localhost |
+| mysql.infoschema | localhost |
+| mysql.session    | localhost |
+| mysql.sys        | localhost |
+| root             | localhost |
+| wpuser           | localhost |
++------------------+-----------+
+7 rows in set (0.04 sec)
+```
+mysql> SHOW GRANTS for wpuser;
+```
+mysql> SHOW GRANTS for wpuser;
++----------------------------------------------------+
+| Grants for wpuser@%                                |
++----------------------------------------------------+
+| GRANT USAGE ON *.* TO `wpuser`@`%`                 |
+| GRANT ALL PRIVILEGES ON `wpblog`.* TO `wpuser`@`%` |
++----------------------------------------------------+
+2 rows in set (0.00 sec)
+```
+## Test it as follows:
+mysql -u wpuser -p wpblog          #senha: Rene#2537
+mysql -u wpuser -h localhost -p wpblog
+
+# Check Current Version: `mysqld --version` or `mysqladmin --version`
+```
+(.venv) marcosranes@DV3500-Ubuntu:~/Desktop/Tutorials$ mysqld --version
+/usr/sbin/mysqld  Ver 8.0.27-0ubuntu0.21.10.1 for Linux on x86_64 ((Ubuntu))
+(.venv) marcosranes@DV3500-Ubuntu:~/Desktop/Tutorials$ mysqladmin --version
+mysqladmin  Ver 8.0.27-0ubuntu0.21.10.1 for Linux on x86_64 ((Ubuntu))
+```
+## Create a new user (with remote access) and grant privileges to this user on the new database.
+
+If your stack ships MySQL v8.x:
+```
+  mysql> create user 'USER_NAME'@'%' identified by 'PASSWORD';
+
+  mysql> grant all privileges on DATABASE_NAME.* TO 'USER_NAME'@'%';
+```
+If your stack ships an older version of MySQL:
+```
+  mysql> grant all privileges on DATABASE_NAME.* TO 'USER_NAME'@'%' identified by 'PASSWORD';
+```
+## After modifying the MySQL grant tables, execute the following command in order to apply the changes:
+```
+  mysql> flush privileges;
+```
+
+## Bonus: 
+
+Where,
+```
+-u wpuser : User for login
+-h localhost : Connect to host named localhost
+-p : Prompt for password
+wpblog : Connect to database named wpblog
+```
+Some applications require specific privileges in the database. Check the MySQL official [getting started guide.](https://dev.mysql.com/doc/mysql-getting-started/en/)\
+References:\
+[Article 1](https://www.cyberciti.biz/faq/ubuntu-20-04-update-installed-packages-for-security/)\
+[Article 2](https://docs.bitnami.com/aws/apps/wordpress/configuration/create-database-mysql/)\
+[Article 3](https://www.cyberciti.biz/faq/install-mysql-server-8-on-ubuntu-20-04-lts-linux/#Update_Ubuntu)
