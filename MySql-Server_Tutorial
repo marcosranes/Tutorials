@@ -1,16 +1,17 @@
+## `$ date`
 
-## ` $ date `
 ```
 Tue Dec 21 12:31:15 PM -03 2021
 ```
- 
+
 # How to install MySQL server on Ubuntu 20.04 LTS
- 
+
 How do I install MySQL server 8.0 on Ubuntu 20.04 LTS Linux server? How can I add a new MySQL user and database on the newly set up Ubuntu server?
- 
+
 MySQL version 8.0 is a free and open-source database system used by most web applications and sites on the Internet. Typically MySQL is part of the LAMP (Linux, Apache, MySQL, Perl/Python/PHP) stack. Popular opensource software such as WordPress, MediaWiki, and others heavily used by MySQL as a database storage engine. Let us see how to install MySQL server version 8.x on Ubuntu 20.04 LTS Linux server for your web apps or blog system.
 
-## ` $ sudo apt update && sudo apt upgrade `
+## `$ sudo apt update && sudo apt upgrade`
+
 ```
 Hit:1 https://download.docker.com/linux/ubuntu impish InRelease
 Hit:2 https://linux.teamviewer.com/deb stable InRelease
@@ -34,12 +35,13 @@ The following packages were automatically installed and are no longer required:
 Use 'sudo apt autoremove' to remove them.
 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
 ```
- 
+
 ## Step 1 – Installing MySQL server
- 
+
 The command below allows us seaching for mysql-server package in the repository index
 
-### ` $ apt search mysql-server `
+### `$ apt search mysql-server`
+
 ```
 Sorting... Done
 Full Text Search... Done
@@ -60,7 +62,8 @@ mysql-server-core-8.0/impish-updates,impish-security 8.0.27-0ubuntu0.21.10.1 amd
 
 ```
 
-### ` $ sudo apt info mysql-server `
+### `$ sudo apt info mysql-server`
+
 ```
 Package: mysql-server
 Version: 8.0.27-0ubuntu0.21.10.1
@@ -88,11 +91,12 @@ Description: MySQL database server (metapackage depending on the latest version)
  server. SQL (Structured Query Language) is the most popular database query
  language in the world. The main goals of MySQL are speed, robustness and
  ease of use.
- 
+
 N: There is 1 additional record. Please use the '-a' switch to see it
 ```
 
-### ` $ sudo apt info mysql-server -a `
+### `$ sudo apt info mysql-server -a`
+
 ```
 Package: mysql-server
 Version: 8.0.27-0ubuntu0.21.10.1
@@ -149,10 +153,11 @@ Description: MySQL database server (metapackage depending on the latest version)
  ease of use.
 
 ```
- 
+
 ### Install it on Ubuntu 20.04 LTS:
 
-### ` $ sudo apt install mysql-server `
+### `$ sudo apt install mysql-server`
+
 ```
 Reading package lists...
 Building dependency tree...
@@ -180,9 +185,11 @@ Need to get 28.5 MB of archives.
 After this operation, 239 MB of additional disk space will be used.
 Do you want to continue? [Y/n]
 ```
+
 Or, we can define the -y parameter, which stands for yes, case we don't want it to ask us through the installation.
 
-# ` $ sudo apt install mysql-server -y `
+# `$ sudo apt install mysql-server -y`
+
 ```
 Reading package lists...
 Building dependency tree...
@@ -231,7 +238,7 @@ Get:20 http://us.archive.ubuntu.com/ubuntu impish-updates/main amd64 mysql-serve
 Preconfiguring packages ...
 Fetched 28.5 MB in 25s (1,128 kB/s)
 Selecting previously unselected package mysql-common.
-(Reading database ... 
+(Reading database ...
 (Reading database ... 5%
 (Reading database ... 10%
 (Reading database ... 15%
@@ -282,7 +289,7 @@ Unpacking mysql-server-core-8.0 (8.0.27-0ubuntu0.21.10.1) ...
 Setting up mysql-common (5.8+1.0.5ubuntu2) ...
 update-alternatives: using /etc/mysql/my.cnf.fallback to provide /etc/mysql/my.cnf (my.cnf) in auto mode
 Selecting previously unselected package mysql-server-8.0.
-(Reading database ... 
+(Reading database ...
 (Reading database ... 5%
 (Reading database ... 10%
 (Reading database ... 15%
@@ -352,17 +359,17 @@ Setting up libevent-pthreads-2.1-7:amd64 (2.1.12-stable-1) ...
 Setting up mecab-ipadic (2.7.0-20070801+main-3) ...
 Compiling IPA dictionary for Mecab.  This takes long time...
 reading /usr/share/mecab/dic/ipadic/unk.def ... 40
-emitting double-array:   9% |###                                        | 
-emitting double-array:  18% |#######                                    | 
-emitting double-array:  27% |###########                                | 
-emitting double-array:  36% |###############                            | 
-emitting double-array:  45% |###################                        | 
-emitting double-array:  54% |#######################                    | 
-emitting double-array:  63% |###########################                | 
-emitting double-array:  72% |###############################            | 
-emitting double-array:  81% |###################################        | 
-emitting double-array:  90% |#######################################    | 
-emitting double-array: 100% |###########################################| 
+emitting double-array:   9% |###                                        |
+emitting double-array:  18% |#######                                    |
+emitting double-array:  27% |###########                                |
+emitting double-array:  36% |###############                            |
+emitting double-array:  45% |###################                        |
+emitting double-array:  54% |#######################                    |
+emitting double-array:  63% |###########################                |
+emitting double-array:  72% |###############################            |
+emitting double-array:  81% |###################################        |
+emitting double-array:  90% |#######################################    |
+emitting double-array: 100% |###########################################|
 /usr/share/mecab/dic/ipadic/model.def is not found. skipped.
 reading /usr/share/mecab/dic/ipadic/Noun.csv ... 60477
 reading /usr/share/mecab/dic/ipadic/Auxil.csv ... 199
@@ -390,209 +397,209 @@ reading /usr/share/mecab/dic/ipadic/Suffix.csv ... 1393
 reading /usr/share/mecab/dic/ipadic/Noun.others.csv ... 151
 reading /usr/share/mecab/dic/ipadic/Adverb.csv ... 3032
 reading /usr/share/mecab/dic/ipadic/Others.csv ... 2
-emitting double-array:   0% |                                           | 
-emitting double-array:   1% |                                           | 
-emitting double-array:   2% |                                           | 
-emitting double-array:   3% |#                                          | 
-emitting double-array:   4% |#                                          | 
-emitting double-array:   5% |##                                         | 
-emitting double-array:   6% |##                                         | 
-emitting double-array:   7% |###                                        | 
-emitting double-array:   8% |###                                        | 
-emitting double-array:   9% |###                                        | 
-emitting double-array:  10% |####                                       | 
-emitting double-array:  11% |####                                       | 
-emitting double-array:  12% |#####                                      | 
-emitting double-array:  13% |#####                                      | 
-emitting double-array:  14% |######                                     | 
-emitting double-array:  15% |######                                     | 
-emitting double-array:  16% |######                                     | 
-emitting double-array:  17% |#######                                    | 
-emitting double-array:  18% |#######                                    | 
-emitting double-array:  19% |########                                   | 
-emitting double-array:  20% |########                                   | 
-emitting double-array:  21% |#########                                  | 
-emitting double-array:  22% |#########                                  | 
-emitting double-array:  23% |#########                                  | 
-emitting double-array:  24% |##########                                 | 
-emitting double-array:  25% |##########                                 | 
-emitting double-array:  26% |###########                                | 
-emitting double-array:  27% |###########                                | 
-emitting double-array:  28% |############                               | 
-emitting double-array:  29% |############                               | 
-emitting double-array:  30% |############                               | 
-emitting double-array:  31% |#############                              | 
-emitting double-array:  32% |#############                              | 
-emitting double-array:  33% |##############                             | 
-emitting double-array:  34% |##############                             | 
-emitting double-array:  35% |###############                            | 
-emitting double-array:  36% |###############                            | 
-emitting double-array:  37% |###############                            | 
-emitting double-array:  38% |################                           | 
-emitting double-array:  39% |################                           | 
-emitting double-array:  40% |#################                          | 
-emitting double-array:  41% |#################                          | 
-emitting double-array:  42% |##################                         | 
-emitting double-array:  43% |##################                         | 
-emitting double-array:  44% |##################                         | 
-emitting double-array:  45% |###################                        | 
-emitting double-array:  46% |###################                        | 
-emitting double-array:  47% |####################                       | 
-emitting double-array:  48% |####################                       | 
-emitting double-array:  49% |#####################                      | 
-emitting double-array:  50% |#####################                      | 
-emitting double-array:  51% |#####################                      | 
-emitting double-array:  52% |######################                     | 
-emitting double-array:  53% |######################                     | 
-emitting double-array:  54% |#######################                    | 
-emitting double-array:  55% |#######################                    | 
-emitting double-array:  56% |########################                   | 
-emitting double-array:  57% |########################                   | 
-emitting double-array:  58% |########################                   | 
-emitting double-array:  59% |#########################                  | 
-emitting double-array:  60% |#########################                  | 
-emitting double-array:  61% |##########################                 | 
-emitting double-array:  62% |##########################                 | 
-emitting double-array:  63% |###########################                | 
-emitting double-array:  64% |###########################                | 
-emitting double-array:  65% |###########################                | 
-emitting double-array:  66% |############################               | 
-emitting double-array:  67% |############################               | 
-emitting double-array:  68% |#############################              | 
-emitting double-array:  69% |#############################              | 
-emitting double-array:  70% |##############################             | 
-emitting double-array:  71% |##############################             | 
-emitting double-array:  72% |##############################             | 
-emitting double-array:  73% |###############################            | 
-emitting double-array:  74% |###############################            | 
-emitting double-array:  75% |################################           | 
-emitting double-array:  76% |################################           | 
-emitting double-array:  77% |#################################          | 
-emitting double-array:  78% |#################################          | 
-emitting double-array:  79% |#################################          | 
-emitting double-array:  80% |##################################         | 
-emitting double-array:  81% |##################################         | 
-emitting double-array:  82% |###################################        | 
-emitting double-array:  83% |###################################        | 
-emitting double-array:  84% |####################################       | 
-emitting double-array:  85% |####################################       | 
-emitting double-array:  86% |####################################       | 
-emitting double-array:  87% |#####################################      | 
-emitting double-array:  88% |#####################################      | 
-emitting double-array:  89% |######################################     | 
-emitting double-array:  90% |######################################     | 
-emitting double-array:  91% |#######################################    | 
-emitting double-array:  92% |#######################################    | 
-emitting double-array:  93% |#######################################    | 
-emitting double-array:  94% |########################################   | 
-emitting double-array:  95% |########################################   | 
-emitting double-array:  96% |#########################################  | 
-emitting double-array:  97% |#########################################  | 
-emitting double-array:  98% |########################################## | 
-emitting double-array:  99% |########################################## | 
-emitting double-array: 100% |###########################################| 
+emitting double-array:   0% |                                           |
+emitting double-array:   1% |                                           |
+emitting double-array:   2% |                                           |
+emitting double-array:   3% |#                                          |
+emitting double-array:   4% |#                                          |
+emitting double-array:   5% |##                                         |
+emitting double-array:   6% |##                                         |
+emitting double-array:   7% |###                                        |
+emitting double-array:   8% |###                                        |
+emitting double-array:   9% |###                                        |
+emitting double-array:  10% |####                                       |
+emitting double-array:  11% |####                                       |
+emitting double-array:  12% |#####                                      |
+emitting double-array:  13% |#####                                      |
+emitting double-array:  14% |######                                     |
+emitting double-array:  15% |######                                     |
+emitting double-array:  16% |######                                     |
+emitting double-array:  17% |#######                                    |
+emitting double-array:  18% |#######                                    |
+emitting double-array:  19% |########                                   |
+emitting double-array:  20% |########                                   |
+emitting double-array:  21% |#########                                  |
+emitting double-array:  22% |#########                                  |
+emitting double-array:  23% |#########                                  |
+emitting double-array:  24% |##########                                 |
+emitting double-array:  25% |##########                                 |
+emitting double-array:  26% |###########                                |
+emitting double-array:  27% |###########                                |
+emitting double-array:  28% |############                               |
+emitting double-array:  29% |############                               |
+emitting double-array:  30% |############                               |
+emitting double-array:  31% |#############                              |
+emitting double-array:  32% |#############                              |
+emitting double-array:  33% |##############                             |
+emitting double-array:  34% |##############                             |
+emitting double-array:  35% |###############                            |
+emitting double-array:  36% |###############                            |
+emitting double-array:  37% |###############                            |
+emitting double-array:  38% |################                           |
+emitting double-array:  39% |################                           |
+emitting double-array:  40% |#################                          |
+emitting double-array:  41% |#################                          |
+emitting double-array:  42% |##################                         |
+emitting double-array:  43% |##################                         |
+emitting double-array:  44% |##################                         |
+emitting double-array:  45% |###################                        |
+emitting double-array:  46% |###################                        |
+emitting double-array:  47% |####################                       |
+emitting double-array:  48% |####################                       |
+emitting double-array:  49% |#####################                      |
+emitting double-array:  50% |#####################                      |
+emitting double-array:  51% |#####################                      |
+emitting double-array:  52% |######################                     |
+emitting double-array:  53% |######################                     |
+emitting double-array:  54% |#######################                    |
+emitting double-array:  55% |#######################                    |
+emitting double-array:  56% |########################                   |
+emitting double-array:  57% |########################                   |
+emitting double-array:  58% |########################                   |
+emitting double-array:  59% |#########################                  |
+emitting double-array:  60% |#########################                  |
+emitting double-array:  61% |##########################                 |
+emitting double-array:  62% |##########################                 |
+emitting double-array:  63% |###########################                |
+emitting double-array:  64% |###########################                |
+emitting double-array:  65% |###########################                |
+emitting double-array:  66% |############################               |
+emitting double-array:  67% |############################               |
+emitting double-array:  68% |#############################              |
+emitting double-array:  69% |#############################              |
+emitting double-array:  70% |##############################             |
+emitting double-array:  71% |##############################             |
+emitting double-array:  72% |##############################             |
+emitting double-array:  73% |###############################            |
+emitting double-array:  74% |###############################            |
+emitting double-array:  75% |################################           |
+emitting double-array:  76% |################################           |
+emitting double-array:  77% |#################################          |
+emitting double-array:  78% |#################################          |
+emitting double-array:  79% |#################################          |
+emitting double-array:  80% |##################################         |
+emitting double-array:  81% |##################################         |
+emitting double-array:  82% |###################################        |
+emitting double-array:  83% |###################################        |
+emitting double-array:  84% |####################################       |
+emitting double-array:  85% |####################################       |
+emitting double-array:  86% |####################################       |
+emitting double-array:  87% |#####################################      |
+emitting double-array:  88% |#####################################      |
+emitting double-array:  89% |######################################     |
+emitting double-array:  90% |######################################     |
+emitting double-array:  91% |#######################################    |
+emitting double-array:  92% |#######################################    |
+emitting double-array:  93% |#######################################    |
+emitting double-array:  94% |########################################   |
+emitting double-array:  95% |########################################   |
+emitting double-array:  96% |#########################################  |
+emitting double-array:  97% |#########################################  |
+emitting double-array:  98% |########################################## |
+emitting double-array:  99% |########################################## |
+emitting double-array: 100% |###########################################|
 reading /usr/share/mecab/dic/ipadic/matrix.def ... 1316x1316
-emitting matrix      :   0% |                                           | 
-emitting matrix      :   1% |                                           | 
-emitting matrix      :   2% |                                           | 
-emitting matrix      :   3% |#                                          | 
-emitting matrix      :   4% |#                                          | 
-emitting matrix      :   5% |##                                         | 
-emitting matrix      :   6% |##                                         | 
-emitting matrix      :   7% |###                                        | 
-emitting matrix      :   8% |###                                        | 
-emitting matrix      :   9% |###                                        | 
-emitting matrix      :  10% |####                                       | 
-emitting matrix      :  11% |####                                       | 
-emitting matrix      :  12% |#####                                      | 
-emitting matrix      :  13% |#####                                      | 
-emitting matrix      :  14% |######                                     | 
-emitting matrix      :  15% |######                                     | 
-emitting matrix      :  16% |######                                     | 
-emitting matrix      :  17% |#######                                    | 
-emitting matrix      :  18% |#######                                    | 
-emitting matrix      :  19% |########                                   | 
-emitting matrix      :  20% |########                                   | 
-emitting matrix      :  21% |#########                                  | 
-emitting matrix      :  22% |#########                                  | 
-emitting matrix      :  23% |#########                                  | 
-emitting matrix      :  24% |##########                                 | 
-emitting matrix      :  25% |##########                                 | 
-emitting matrix      :  26% |###########                                | 
-emitting matrix      :  27% |###########                                | 
-emitting matrix      :  28% |############                               | 
-emitting matrix      :  29% |############                               | 
-emitting matrix      :  30% |############                               | 
-emitting matrix      :  31% |#############                              | 
-emitting matrix      :  32% |#############                              | 
-emitting matrix      :  33% |##############                             | 
-emitting matrix      :  34% |##############                             | 
-emitting matrix      :  35% |###############                            | 
-emitting matrix      :  36% |###############                            | 
-emitting matrix      :  37% |###############                            | 
-emitting matrix      :  38% |################                           | 
-emitting matrix      :  39% |################                           | 
-emitting matrix      :  40% |#################                          | 
-emitting matrix      :  41% |#################                          | 
-emitting matrix      :  42% |##################                         | 
-emitting matrix      :  43% |##################                         | 
-emitting matrix      :  44% |##################                         | 
-emitting matrix      :  45% |###################                        | 
-emitting matrix      :  46% |###################                        | 
-emitting matrix      :  47% |####################                       | 
-emitting matrix      :  48% |####################                       | 
-emitting matrix      :  49% |#####################                      | 
-emitting matrix      :  50% |#####################                      | 
-emitting matrix      :  51% |#####################                      | 
-emitting matrix      :  52% |######################                     | 
-emitting matrix      :  53% |######################                     | 
-emitting matrix      :  54% |#######################                    | 
-emitting matrix      :  55% |#######################                    | 
-emitting matrix      :  56% |########################                   | 
-emitting matrix      :  57% |########################                   | 
-emitting matrix      :  58% |########################                   | 
-emitting matrix      :  59% |#########################                  | 
-emitting matrix      :  60% |#########################                  | 
-emitting matrix      :  61% |##########################                 | 
-emitting matrix      :  62% |##########################                 | 
-emitting matrix      :  63% |###########################                | 
-emitting matrix      :  64% |###########################                | 
-emitting matrix      :  65% |###########################                | 
-emitting matrix      :  66% |############################               | 
-emitting matrix      :  67% |############################               | 
-emitting matrix      :  68% |#############################              | 
-emitting matrix      :  69% |#############################              | 
-emitting matrix      :  70% |##############################             | 
-emitting matrix      :  71% |##############################             | 
-emitting matrix      :  72% |##############################             | 
-emitting matrix      :  73% |###############################            | 
-emitting matrix      :  74% |###############################            | 
-emitting matrix      :  75% |################################           | 
-emitting matrix      :  76% |################################           | 
-emitting matrix      :  77% |#################################          | 
-emitting matrix      :  78% |#################################          | 
-emitting matrix      :  79% |#################################          | 
-emitting matrix      :  80% |##################################         | 
-emitting matrix      :  81% |##################################         | 
-emitting matrix      :  82% |###################################        | 
-emitting matrix      :  83% |###################################        | 
-emitting matrix      :  84% |####################################       | 
-emitting matrix      :  85% |####################################       | 
-emitting matrix      :  86% |####################################       | 
-emitting matrix      :  87% |#####################################      | 
-emitting matrix      :  88% |#####################################      | 
-emitting matrix      :  89% |######################################     | 
-emitting matrix      :  90% |######################################     | 
-emitting matrix      :  91% |#######################################    | 
-emitting matrix      :  92% |#######################################    | 
-emitting matrix      :  93% |#######################################    | 
-emitting matrix      :  94% |########################################   | 
-emitting matrix      :  95% |########################################   | 
-emitting matrix      :  96% |#########################################  | 
-emitting matrix      :  97% |#########################################  | 
-emitting matrix      :  98% |########################################## | 
-emitting matrix      :  99% |########################################## | 
-emitting matrix      : 100% |###########################################| 
+emitting matrix      :   0% |                                           |
+emitting matrix      :   1% |                                           |
+emitting matrix      :   2% |                                           |
+emitting matrix      :   3% |#                                          |
+emitting matrix      :   4% |#                                          |
+emitting matrix      :   5% |##                                         |
+emitting matrix      :   6% |##                                         |
+emitting matrix      :   7% |###                                        |
+emitting matrix      :   8% |###                                        |
+emitting matrix      :   9% |###                                        |
+emitting matrix      :  10% |####                                       |
+emitting matrix      :  11% |####                                       |
+emitting matrix      :  12% |#####                                      |
+emitting matrix      :  13% |#####                                      |
+emitting matrix      :  14% |######                                     |
+emitting matrix      :  15% |######                                     |
+emitting matrix      :  16% |######                                     |
+emitting matrix      :  17% |#######                                    |
+emitting matrix      :  18% |#######                                    |
+emitting matrix      :  19% |########                                   |
+emitting matrix      :  20% |########                                   |
+emitting matrix      :  21% |#########                                  |
+emitting matrix      :  22% |#########                                  |
+emitting matrix      :  23% |#########                                  |
+emitting matrix      :  24% |##########                                 |
+emitting matrix      :  25% |##########                                 |
+emitting matrix      :  26% |###########                                |
+emitting matrix      :  27% |###########                                |
+emitting matrix      :  28% |############                               |
+emitting matrix      :  29% |############                               |
+emitting matrix      :  30% |############                               |
+emitting matrix      :  31% |#############                              |
+emitting matrix      :  32% |#############                              |
+emitting matrix      :  33% |##############                             |
+emitting matrix      :  34% |##############                             |
+emitting matrix      :  35% |###############                            |
+emitting matrix      :  36% |###############                            |
+emitting matrix      :  37% |###############                            |
+emitting matrix      :  38% |################                           |
+emitting matrix      :  39% |################                           |
+emitting matrix      :  40% |#################                          |
+emitting matrix      :  41% |#################                          |
+emitting matrix      :  42% |##################                         |
+emitting matrix      :  43% |##################                         |
+emitting matrix      :  44% |##################                         |
+emitting matrix      :  45% |###################                        |
+emitting matrix      :  46% |###################                        |
+emitting matrix      :  47% |####################                       |
+emitting matrix      :  48% |####################                       |
+emitting matrix      :  49% |#####################                      |
+emitting matrix      :  50% |#####################                      |
+emitting matrix      :  51% |#####################                      |
+emitting matrix      :  52% |######################                     |
+emitting matrix      :  53% |######################                     |
+emitting matrix      :  54% |#######################                    |
+emitting matrix      :  55% |#######################                    |
+emitting matrix      :  56% |########################                   |
+emitting matrix      :  57% |########################                   |
+emitting matrix      :  58% |########################                   |
+emitting matrix      :  59% |#########################                  |
+emitting matrix      :  60% |#########################                  |
+emitting matrix      :  61% |##########################                 |
+emitting matrix      :  62% |##########################                 |
+emitting matrix      :  63% |###########################                |
+emitting matrix      :  64% |###########################                |
+emitting matrix      :  65% |###########################                |
+emitting matrix      :  66% |############################               |
+emitting matrix      :  67% |############################               |
+emitting matrix      :  68% |#############################              |
+emitting matrix      :  69% |#############################              |
+emitting matrix      :  70% |##############################             |
+emitting matrix      :  71% |##############################             |
+emitting matrix      :  72% |##############################             |
+emitting matrix      :  73% |###############################            |
+emitting matrix      :  74% |###############################            |
+emitting matrix      :  75% |################################           |
+emitting matrix      :  76% |################################           |
+emitting matrix      :  77% |#################################          |
+emitting matrix      :  78% |#################################          |
+emitting matrix      :  79% |#################################          |
+emitting matrix      :  80% |##################################         |
+emitting matrix      :  81% |##################################         |
+emitting matrix      :  82% |###################################        |
+emitting matrix      :  83% |###################################        |
+emitting matrix      :  84% |####################################       |
+emitting matrix      :  85% |####################################       |
+emitting matrix      :  86% |####################################       |
+emitting matrix      :  87% |#####################################      |
+emitting matrix      :  88% |#####################################      |
+emitting matrix      :  89% |######################################     |
+emitting matrix      :  90% |######################################     |
+emitting matrix      :  91% |#######################################    |
+emitting matrix      :  92% |#######################################    |
+emitting matrix      :  93% |#######################################    |
+emitting matrix      :  94% |########################################   |
+emitting matrix      :  95% |########################################   |
+emitting matrix      :  96% |#########################################  |
+emitting matrix      :  97% |#########################################  |
+emitting matrix      :  98% |########################################## |
+emitting matrix      :  99% |########################################## |
+emitting matrix      : 100% |###########################################|
 
 done!
 update-alternatives: using /var/lib/mecab/dic/ipadic to provide /var/lib/mecab/dic/debian (mecab-dictionary) in auto mode
@@ -601,17 +608,17 @@ Setting up mysql-server-core-8.0 (8.0.27-0ubuntu0.21.10.1) ...
 Setting up mecab-ipadic-utf8 (2.7.0-20070801+main-3) ...
 Compiling IPA dictionary for Mecab.  This takes long time...
 reading /usr/share/mecab/dic/ipadic/unk.def ... 40
-emitting double-array:   9% |###                                        | 
-emitting double-array:  18% |#######                                    | 
-emitting double-array:  27% |###########                                | 
-emitting double-array:  36% |###############                            | 
-emitting double-array:  45% |###################                        | 
-emitting double-array:  54% |#######################                    | 
-emitting double-array:  63% |###########################                | 
-emitting double-array:  72% |###############################            | 
-emitting double-array:  81% |###################################        | 
-emitting double-array:  90% |#######################################    | 
-emitting double-array: 100% |###########################################| 
+emitting double-array:   9% |###                                        |
+emitting double-array:  18% |#######                                    |
+emitting double-array:  27% |###########                                |
+emitting double-array:  36% |###############                            |
+emitting double-array:  45% |###################                        |
+emitting double-array:  54% |#######################                    |
+emitting double-array:  63% |###########################                |
+emitting double-array:  72% |###############################            |
+emitting double-array:  81% |###################################        |
+emitting double-array:  90% |#######################################    |
+emitting double-array: 100% |###########################################|
 /usr/share/mecab/dic/ipadic/model.def is not found. skipped.
 reading /usr/share/mecab/dic/ipadic/Noun.csv ... 60477
 reading /usr/share/mecab/dic/ipadic/Auxil.csv ... 199
@@ -639,209 +646,209 @@ reading /usr/share/mecab/dic/ipadic/Suffix.csv ... 1393
 reading /usr/share/mecab/dic/ipadic/Noun.others.csv ... 151
 reading /usr/share/mecab/dic/ipadic/Adverb.csv ... 3032
 reading /usr/share/mecab/dic/ipadic/Others.csv ... 2
-emitting double-array:   0% |                                           | 
-emitting double-array:   1% |                                           | 
-emitting double-array:   2% |                                           | 
-emitting double-array:   3% |#                                          | 
-emitting double-array:   4% |#                                          | 
-emitting double-array:   5% |##                                         | 
-emitting double-array:   6% |##                                         | 
-emitting double-array:   7% |###                                        | 
-emitting double-array:   8% |###                                        | 
-emitting double-array:   9% |###                                        | 
-emitting double-array:  10% |####                                       | 
-emitting double-array:  11% |####                                       | 
-emitting double-array:  12% |#####                                      | 
-emitting double-array:  13% |#####                                      | 
-emitting double-array:  14% |######                                     | 
-emitting double-array:  15% |######                                     | 
-emitting double-array:  16% |######                                     | 
-emitting double-array:  17% |#######                                    | 
-emitting double-array:  18% |#######                                    | 
-emitting double-array:  19% |########                                   | 
-emitting double-array:  20% |########                                   | 
-emitting double-array:  21% |#########                                  | 
-emitting double-array:  22% |#########                                  | 
-emitting double-array:  23% |#########                                  | 
-emitting double-array:  24% |##########                                 | 
-emitting double-array:  25% |##########                                 | 
-emitting double-array:  26% |###########                                | 
-emitting double-array:  27% |###########                                | 
-emitting double-array:  28% |############                               | 
-emitting double-array:  29% |############                               | 
-emitting double-array:  30% |############                               | 
-emitting double-array:  31% |#############                              | 
-emitting double-array:  32% |#############                              | 
-emitting double-array:  33% |##############                             | 
-emitting double-array:  34% |##############                             | 
-emitting double-array:  35% |###############                            | 
-emitting double-array:  36% |###############                            | 
-emitting double-array:  37% |###############                            | 
-emitting double-array:  38% |################                           | 
-emitting double-array:  39% |################                           | 
-emitting double-array:  40% |#################                          | 
-emitting double-array:  41% |#################                          | 
-emitting double-array:  42% |##################                         | 
-emitting double-array:  43% |##################                         | 
-emitting double-array:  44% |##################                         | 
-emitting double-array:  45% |###################                        | 
-emitting double-array:  46% |###################                        | 
-emitting double-array:  47% |####################                       | 
-emitting double-array:  48% |####################                       | 
-emitting double-array:  49% |#####################                      | 
-emitting double-array:  50% |#####################                      | 
-emitting double-array:  51% |#####################                      | 
-emitting double-array:  52% |######################                     | 
-emitting double-array:  53% |######################                     | 
-emitting double-array:  54% |#######################                    | 
-emitting double-array:  55% |#######################                    | 
-emitting double-array:  56% |########################                   | 
-emitting double-array:  57% |########################                   | 
-emitting double-array:  58% |########################                   | 
-emitting double-array:  59% |#########################                  | 
-emitting double-array:  60% |#########################                  | 
-emitting double-array:  61% |##########################                 | 
-emitting double-array:  62% |##########################                 | 
-emitting double-array:  63% |###########################                | 
-emitting double-array:  64% |###########################                | 
-emitting double-array:  65% |###########################                | 
-emitting double-array:  66% |############################               | 
-emitting double-array:  67% |############################               | 
-emitting double-array:  68% |#############################              | 
-emitting double-array:  69% |#############################              | 
-emitting double-array:  70% |##############################             | 
-emitting double-array:  71% |##############################             | 
-emitting double-array:  72% |##############################             | 
-emitting double-array:  73% |###############################            | 
-emitting double-array:  74% |###############################            | 
-emitting double-array:  75% |################################           | 
-emitting double-array:  76% |################################           | 
-emitting double-array:  77% |#################################          | 
-emitting double-array:  78% |#################################          | 
-emitting double-array:  79% |#################################          | 
-emitting double-array:  80% |##################################         | 
-emitting double-array:  81% |##################################         | 
-emitting double-array:  82% |###################################        | 
-emitting double-array:  83% |###################################        | 
-emitting double-array:  84% |####################################       | 
-emitting double-array:  85% |####################################       | 
-emitting double-array:  86% |####################################       | 
-emitting double-array:  87% |#####################################      | 
-emitting double-array:  88% |#####################################      | 
-emitting double-array:  89% |######################################     | 
-emitting double-array:  90% |######################################     | 
-emitting double-array:  91% |#######################################    | 
-emitting double-array:  92% |#######################################    | 
-emitting double-array:  93% |#######################################    | 
-emitting double-array:  94% |########################################   | 
-emitting double-array:  95% |########################################   | 
-emitting double-array:  96% |#########################################  | 
-emitting double-array:  97% |#########################################  | 
-emitting double-array:  98% |########################################## | 
-emitting double-array:  99% |########################################## | 
-emitting double-array: 100% |###########################################| 
+emitting double-array:   0% |                                           |
+emitting double-array:   1% |                                           |
+emitting double-array:   2% |                                           |
+emitting double-array:   3% |#                                          |
+emitting double-array:   4% |#                                          |
+emitting double-array:   5% |##                                         |
+emitting double-array:   6% |##                                         |
+emitting double-array:   7% |###                                        |
+emitting double-array:   8% |###                                        |
+emitting double-array:   9% |###                                        |
+emitting double-array:  10% |####                                       |
+emitting double-array:  11% |####                                       |
+emitting double-array:  12% |#####                                      |
+emitting double-array:  13% |#####                                      |
+emitting double-array:  14% |######                                     |
+emitting double-array:  15% |######                                     |
+emitting double-array:  16% |######                                     |
+emitting double-array:  17% |#######                                    |
+emitting double-array:  18% |#######                                    |
+emitting double-array:  19% |########                                   |
+emitting double-array:  20% |########                                   |
+emitting double-array:  21% |#########                                  |
+emitting double-array:  22% |#########                                  |
+emitting double-array:  23% |#########                                  |
+emitting double-array:  24% |##########                                 |
+emitting double-array:  25% |##########                                 |
+emitting double-array:  26% |###########                                |
+emitting double-array:  27% |###########                                |
+emitting double-array:  28% |############                               |
+emitting double-array:  29% |############                               |
+emitting double-array:  30% |############                               |
+emitting double-array:  31% |#############                              |
+emitting double-array:  32% |#############                              |
+emitting double-array:  33% |##############                             |
+emitting double-array:  34% |##############                             |
+emitting double-array:  35% |###############                            |
+emitting double-array:  36% |###############                            |
+emitting double-array:  37% |###############                            |
+emitting double-array:  38% |################                           |
+emitting double-array:  39% |################                           |
+emitting double-array:  40% |#################                          |
+emitting double-array:  41% |#################                          |
+emitting double-array:  42% |##################                         |
+emitting double-array:  43% |##################                         |
+emitting double-array:  44% |##################                         |
+emitting double-array:  45% |###################                        |
+emitting double-array:  46% |###################                        |
+emitting double-array:  47% |####################                       |
+emitting double-array:  48% |####################                       |
+emitting double-array:  49% |#####################                      |
+emitting double-array:  50% |#####################                      |
+emitting double-array:  51% |#####################                      |
+emitting double-array:  52% |######################                     |
+emitting double-array:  53% |######################                     |
+emitting double-array:  54% |#######################                    |
+emitting double-array:  55% |#######################                    |
+emitting double-array:  56% |########################                   |
+emitting double-array:  57% |########################                   |
+emitting double-array:  58% |########################                   |
+emitting double-array:  59% |#########################                  |
+emitting double-array:  60% |#########################                  |
+emitting double-array:  61% |##########################                 |
+emitting double-array:  62% |##########################                 |
+emitting double-array:  63% |###########################                |
+emitting double-array:  64% |###########################                |
+emitting double-array:  65% |###########################                |
+emitting double-array:  66% |############################               |
+emitting double-array:  67% |############################               |
+emitting double-array:  68% |#############################              |
+emitting double-array:  69% |#############################              |
+emitting double-array:  70% |##############################             |
+emitting double-array:  71% |##############################             |
+emitting double-array:  72% |##############################             |
+emitting double-array:  73% |###############################            |
+emitting double-array:  74% |###############################            |
+emitting double-array:  75% |################################           |
+emitting double-array:  76% |################################           |
+emitting double-array:  77% |#################################          |
+emitting double-array:  78% |#################################          |
+emitting double-array:  79% |#################################          |
+emitting double-array:  80% |##################################         |
+emitting double-array:  81% |##################################         |
+emitting double-array:  82% |###################################        |
+emitting double-array:  83% |###################################        |
+emitting double-array:  84% |####################################       |
+emitting double-array:  85% |####################################       |
+emitting double-array:  86% |####################################       |
+emitting double-array:  87% |#####################################      |
+emitting double-array:  88% |#####################################      |
+emitting double-array:  89% |######################################     |
+emitting double-array:  90% |######################################     |
+emitting double-array:  91% |#######################################    |
+emitting double-array:  92% |#######################################    |
+emitting double-array:  93% |#######################################    |
+emitting double-array:  94% |########################################   |
+emitting double-array:  95% |########################################   |
+emitting double-array:  96% |#########################################  |
+emitting double-array:  97% |#########################################  |
+emitting double-array:  98% |########################################## |
+emitting double-array:  99% |########################################## |
+emitting double-array: 100% |###########################################|
 reading /usr/share/mecab/dic/ipadic/matrix.def ... 1316x1316
-emitting matrix      :   0% |                                           | 
-emitting matrix      :   1% |                                           | 
-emitting matrix      :   2% |                                           | 
-emitting matrix      :   3% |#                                          | 
-emitting matrix      :   4% |#                                          | 
-emitting matrix      :   5% |##                                         | 
-emitting matrix      :   6% |##                                         | 
-emitting matrix      :   7% |###                                        | 
-emitting matrix      :   8% |###                                        | 
-emitting matrix      :   9% |###                                        | 
-emitting matrix      :  10% |####                                       | 
-emitting matrix      :  11% |####                                       | 
-emitting matrix      :  12% |#####                                      | 
-emitting matrix      :  13% |#####                                      | 
-emitting matrix      :  14% |######                                     | 
-emitting matrix      :  15% |######                                     | 
-emitting matrix      :  16% |######                                     | 
-emitting matrix      :  17% |#######                                    | 
-emitting matrix      :  18% |#######                                    | 
-emitting matrix      :  19% |########                                   | 
-emitting matrix      :  20% |########                                   | 
-emitting matrix      :  21% |#########                                  | 
-emitting matrix      :  22% |#########                                  | 
-emitting matrix      :  23% |#########                                  | 
-emitting matrix      :  24% |##########                                 | 
-emitting matrix      :  25% |##########                                 | 
-emitting matrix      :  26% |###########                                | 
-emitting matrix      :  27% |###########                                | 
-emitting matrix      :  28% |############                               | 
-emitting matrix      :  29% |############                               | 
-emitting matrix      :  30% |############                               | 
-emitting matrix      :  31% |#############                              | 
-emitting matrix      :  32% |#############                              | 
-emitting matrix      :  33% |##############                             | 
-emitting matrix      :  34% |##############                             | 
-emitting matrix      :  35% |###############                            | 
-emitting matrix      :  36% |###############                            | 
-emitting matrix      :  37% |###############                            | 
-emitting matrix      :  38% |################                           | 
-emitting matrix      :  39% |################                           | 
-emitting matrix      :  40% |#################                          | 
-emitting matrix      :  41% |#################                          | 
-emitting matrix      :  42% |##################                         | 
-emitting matrix      :  43% |##################                         | 
-emitting matrix      :  44% |##################                         | 
-emitting matrix      :  45% |###################                        | 
-emitting matrix      :  46% |###################                        | 
-emitting matrix      :  47% |####################                       | 
-emitting matrix      :  48% |####################                       | 
-emitting matrix      :  49% |#####################                      | 
-emitting matrix      :  50% |#####################                      | 
-emitting matrix      :  51% |#####################                      | 
-emitting matrix      :  52% |######################                     | 
-emitting matrix      :  53% |######################                     | 
-emitting matrix      :  54% |#######################                    | 
-emitting matrix      :  55% |#######################                    | 
-emitting matrix      :  56% |########################                   | 
-emitting matrix      :  57% |########################                   | 
-emitting matrix      :  58% |########################                   | 
-emitting matrix      :  59% |#########################                  | 
-emitting matrix      :  60% |#########################                  | 
-emitting matrix      :  61% |##########################                 | 
-emitting matrix      :  62% |##########################                 | 
-emitting matrix      :  63% |###########################                | 
-emitting matrix      :  64% |###########################                | 
-emitting matrix      :  65% |###########################                | 
-emitting matrix      :  66% |############################               | 
-emitting matrix      :  67% |############################               | 
-emitting matrix      :  68% |#############################              | 
-emitting matrix      :  69% |#############################              | 
-emitting matrix      :  70% |##############################             | 
-emitting matrix      :  71% |##############################             | 
-emitting matrix      :  72% |##############################             | 
-emitting matrix      :  73% |###############################            | 
-emitting matrix      :  74% |###############################            | 
-emitting matrix      :  75% |################################           | 
-emitting matrix      :  76% |################################           | 
-emitting matrix      :  77% |#################################          | 
-emitting matrix      :  78% |#################################          | 
-emitting matrix      :  79% |#################################          | 
-emitting matrix      :  80% |##################################         | 
-emitting matrix      :  81% |##################################         | 
-emitting matrix      :  82% |###################################        | 
-emitting matrix      :  83% |###################################        | 
-emitting matrix      :  84% |####################################       | 
-emitting matrix      :  85% |####################################       | 
-emitting matrix      :  86% |####################################       | 
-emitting matrix      :  87% |#####################################      | 
-emitting matrix      :  88% |#####################################      | 
-emitting matrix      :  89% |######################################     | 
-emitting matrix      :  90% |######################################     | 
-emitting matrix      :  91% |#######################################    | 
-emitting matrix      :  92% |#######################################    | 
-emitting matrix      :  93% |#######################################    | 
-emitting matrix      :  94% |########################################   | 
-emitting matrix      :  95% |########################################   | 
-emitting matrix      :  96% |#########################################  | 
-emitting matrix      :  97% |#########################################  | 
-emitting matrix      :  98% |########################################## | 
-emitting matrix      :  99% |########################################## | 
-emitting matrix      : 100% |###########################################| 
+emitting matrix      :   0% |                                           |
+emitting matrix      :   1% |                                           |
+emitting matrix      :   2% |                                           |
+emitting matrix      :   3% |#                                          |
+emitting matrix      :   4% |#                                          |
+emitting matrix      :   5% |##                                         |
+emitting matrix      :   6% |##                                         |
+emitting matrix      :   7% |###                                        |
+emitting matrix      :   8% |###                                        |
+emitting matrix      :   9% |###                                        |
+emitting matrix      :  10% |####                                       |
+emitting matrix      :  11% |####                                       |
+emitting matrix      :  12% |#####                                      |
+emitting matrix      :  13% |#####                                      |
+emitting matrix      :  14% |######                                     |
+emitting matrix      :  15% |######                                     |
+emitting matrix      :  16% |######                                     |
+emitting matrix      :  17% |#######                                    |
+emitting matrix      :  18% |#######                                    |
+emitting matrix      :  19% |########                                   |
+emitting matrix      :  20% |########                                   |
+emitting matrix      :  21% |#########                                  |
+emitting matrix      :  22% |#########                                  |
+emitting matrix      :  23% |#########                                  |
+emitting matrix      :  24% |##########                                 |
+emitting matrix      :  25% |##########                                 |
+emitting matrix      :  26% |###########                                |
+emitting matrix      :  27% |###########                                |
+emitting matrix      :  28% |############                               |
+emitting matrix      :  29% |############                               |
+emitting matrix      :  30% |############                               |
+emitting matrix      :  31% |#############                              |
+emitting matrix      :  32% |#############                              |
+emitting matrix      :  33% |##############                             |
+emitting matrix      :  34% |##############                             |
+emitting matrix      :  35% |###############                            |
+emitting matrix      :  36% |###############                            |
+emitting matrix      :  37% |###############                            |
+emitting matrix      :  38% |################                           |
+emitting matrix      :  39% |################                           |
+emitting matrix      :  40% |#################                          |
+emitting matrix      :  41% |#################                          |
+emitting matrix      :  42% |##################                         |
+emitting matrix      :  43% |##################                         |
+emitting matrix      :  44% |##################                         |
+emitting matrix      :  45% |###################                        |
+emitting matrix      :  46% |###################                        |
+emitting matrix      :  47% |####################                       |
+emitting matrix      :  48% |####################                       |
+emitting matrix      :  49% |#####################                      |
+emitting matrix      :  50% |#####################                      |
+emitting matrix      :  51% |#####################                      |
+emitting matrix      :  52% |######################                     |
+emitting matrix      :  53% |######################                     |
+emitting matrix      :  54% |#######################                    |
+emitting matrix      :  55% |#######################                    |
+emitting matrix      :  56% |########################                   |
+emitting matrix      :  57% |########################                   |
+emitting matrix      :  58% |########################                   |
+emitting matrix      :  59% |#########################                  |
+emitting matrix      :  60% |#########################                  |
+emitting matrix      :  61% |##########################                 |
+emitting matrix      :  62% |##########################                 |
+emitting matrix      :  63% |###########################                |
+emitting matrix      :  64% |###########################                |
+emitting matrix      :  65% |###########################                |
+emitting matrix      :  66% |############################               |
+emitting matrix      :  67% |############################               |
+emitting matrix      :  68% |#############################              |
+emitting matrix      :  69% |#############################              |
+emitting matrix      :  70% |##############################             |
+emitting matrix      :  71% |##############################             |
+emitting matrix      :  72% |##############################             |
+emitting matrix      :  73% |###############################            |
+emitting matrix      :  74% |###############################            |
+emitting matrix      :  75% |################################           |
+emitting matrix      :  76% |################################           |
+emitting matrix      :  77% |#################################          |
+emitting matrix      :  78% |#################################          |
+emitting matrix      :  79% |#################################          |
+emitting matrix      :  80% |##################################         |
+emitting matrix      :  81% |##################################         |
+emitting matrix      :  82% |###################################        |
+emitting matrix      :  83% |###################################        |
+emitting matrix      :  84% |####################################       |
+emitting matrix      :  85% |####################################       |
+emitting matrix      :  86% |####################################       |
+emitting matrix      :  87% |#####################################      |
+emitting matrix      :  88% |#####################################      |
+emitting matrix      :  89% |######################################     |
+emitting matrix      :  90% |######################################     |
+emitting matrix      :  91% |#######################################    |
+emitting matrix      :  92% |#######################################    |
+emitting matrix      :  93% |#######################################    |
+emitting matrix      :  94% |########################################   |
+emitting matrix      :  95% |########################################   |
+emitting matrix      :  96% |#########################################  |
+emitting matrix      :  97% |#########################################  |
+emitting matrix      :  98% |########################################## |
+emitting matrix      :  99% |########################################## |
+emitting matrix      : 100% |###########################################|
 
 done!
 update-alternatives: using /var/lib/mecab/dic/ipadic-utf8 to provide /var/lib/mecab/dic/debian (mecab-dictionary) in auto mode
@@ -855,12 +862,13 @@ Setting up mysql-server (8.0.27-0ubuntu0.21.10.1) ...
 Processing triggers for man-db (2.9.4-2) ...
 Processing triggers for libc-bin (2.34-0ubuntu3) ...
 ```
-  
+
 ## Step 2 – Securing MySQL server
- 
+
 We need to secure our new MySQL server installation by running the following command:
 
-## ` $ sudo mysql_secure_installation `
+## `$ sudo mysql_secure_installation`
+
 ```
 Securing the MySQL server deployment.
 
@@ -882,11 +890,11 @@ STRONG Length >= 8, numeric, mixed case, special characters and dictionary      
 Please enter 0 = LOW, 1 = MEDIUM and 2 = STRONG: 1
 Please set the password for root here.
 
-New password: 
+New password:
 
-Re-enter new password: 
+Re-enter new password:
 
-Estimated strength of the password: 50 
+Estimated strength of the password: 50
 Do you wish to continue with the password provided?(Press y|Y for Yes, any other key for No) : Y
 By default, a MySQL installation has an anonymous user,
 allowing anyone to log into MySQL without having to have
@@ -925,27 +933,32 @@ made so far will take effect immediately.
 Reload privilege tables now? (Press y|Y for Yes, any other key for No) : Y
 Success.
 
-All done! 
-``` 
+All done!
+```
+
 ## Step 3 – Enabling MySQL server at boot time
- 
+
 Make sure our server start when Ubuntu 20.04 LTS boots:
 
-## ` $ sudo systemctl is-enabled mysql.service `
+## `$ sudo systemctl is-enabled mysql.service`
+
 ```
-[sudo] password for marcosranes: 
+[sudo] password for marcosranes:
 enabled
 ```
- 
+
 If not enabled, type the following command to enable the server:
 
-## ` $ sudo systemctl enabled mysql.service `
+## `$ sudo systemctl enabled mysql.service`
+
 ```
 Unknown command verb enabled.
-``` 
+```
+
 Verify server status by typing the following systemctl command:
 
-# ` $ sudo systemctl status mysql.service `
+# `$ sudo systemctl status mysql.service`
+
 ```shell
 ● mysql.service - MySQL Community Server
      Loaded: loaded (/lib/systemd/system/mysql.service; enabled; vendor preset: enabled)
@@ -962,20 +975,21 @@ Verify server status by typing the following systemctl command:
 Dec 21 13:12:04 DV3500-Ubuntu systemd[1]: Starting MySQL Community Server...
 Dec 21 13:12:04 DV3500-Ubuntu systemd[1]: Started MySQL Community Server.
 ```
- 
+
 ## Step 4 – Starting/Stopping/Restarting MySQL server
- 
+
 We can control the MySQL server on Ubuntu using the command line option itself. Let us start it with
 
-## ` $ sudo systemctl start mysql.service `
- 
+## `$ sudo systemctl start mysql.service`
+
 Stop the MySQL server, enter:
 
-## ` $ sudo systemctl stop mysql.service `
- 
+## `$ sudo systemctl stop mysql.service`
+
 So, after running the command above, lets call the status just to see it...
 
-## ` $ sudo systemctl status mysql.service `
+## `$ sudo systemctl status mysql.service`
+
 ```
 ○ mysql.service - MySQL Community Server
      Loaded: loaded (/lib/systemd/system/mysql.service; enabled; vendor preset: enabled)
@@ -993,11 +1007,13 @@ Dec 21 14:00:50 DV3500-Ubuntu systemd[1]: mysql.service: Deactivated successfull
 Dec 21 14:00:50 DV3500-Ubuntu systemd[1]: Stopped MySQL Community Server.
 Dec 21 14:00:50 DV3500-Ubuntu systemd[1]: mysql.service: Consumed 8.388s CPU time.
 ```
+
 Also we have the command restart when it is needed:
 
-## ` $ sudo systemctl restart mysql.service `
+## `$ sudo systemctl restart mysql.service`
 
-## ` $ sudo systemctl status mysql.service `
+## `$ sudo systemctl status mysql.service`
+
 ```
 ● mysql.service - MySQL Community Server
      Loaded: loaded (/lib/systemd/system/mysql.service; enabled; vendor preset: enabled)
@@ -1014,25 +1030,29 @@ Also we have the command restart when it is needed:
 Dec 21 14:07:55 DV3500-Ubuntu systemd[1]: Starting MySQL Community Server...
 Dec 21 14:07:55 DV3500-Ubuntu systemd[1]: Started MySQL Community Server.
 ```
- 
-__NOTE: When SQL-Server is stopped and the Restart command is given, the server is activate as well.__
+
+**NOTE: When SQL-Server is stopped and the Restart command is given, the server is activate as well.**
+
 ##
+
 ## We can view the MySQL service log as follows using the journalctl command:
 
-# ` $ sudo journalctl -u mysql.service -xe `
+# `$ sudo journalctl -u mysql.service -xe`
+
 ```
 -- Journal begins at Sat 2021-12-04 17:08:50 -03, ends at Tue 2021-12-21 14:22:52 -03. --
 Dec 21 13:12:04 DV3500-Ubuntu systemd[1]: Starting MySQL Community Server...
 ░░ Subject: A start job for unit mysql.service has begun execution
 ░░ Defined-By: systemd
 ░░ Support: http://www.ubuntu.com/support
-░░ 
+░░
 ░░ A start job for unit mysql.service has begun execution.
-░░ 
+░░
 ░░ The job identifier is 43226.
 ```
 
-# ` $ sudo tail -f /var/log/mysql/error.log `
+# `$ sudo tail -f /var/log/mysql/error.log`
+
 ```
 2021-12-21T17:07:55.034565Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.27-0ubuntu0.21.10.1)  (Ubuntu).
 2021-12-21T17:07:55.362826Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.27-0ubuntu0.21.10.1) starting as process 278826
@@ -1045,19 +1065,22 @@ Dec 21 13:12:04 DV3500-Ubuntu systemd[1]: Starting MySQL Community Server...
 2021-12-21T17:07:55.593113Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '127.0.0.1' port: 33060, socket: /var/run/mysqld/mysqlx.sock
 2021-12-21T17:07:55.593130Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.27-0ubuntu0.21.10.1'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  (Ubuntu).
 ```
+
 ## Step 5 – Login into MySQL server for testing purpose
- 
+
 So far, we learned how to install, set up, secure, and start/stop the MySQL server version 8 on Ubuntu 20.04 LTS. It is time to log in as a root (admin) user. The syntax is:
 
-## ` $ mysql -u root -p `
+## `$ mysql -u root -p`
+
 ```
-Enter password: 
+Enter password:
 ERROR 1698 (28000): Access denied for user 'root'@'localhost'
 ```
 
-## ` $ sudo mysql -u root -p `
+## `$ sudo mysql -u root -p`
+
 ```
-Enter password: 
+Enter password:
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 20
 Server version: 8.0.27-0ubuntu0.21.10.1 (Ubuntu)
@@ -1073,11 +1096,12 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 mysql> quit
 Bye
 ```
- 
+
 # let's a view of an instance of this service running, and take a look at some commands:
-```     
+
+```
 (.venv) marcosranes@DV3500-Ubuntu:~/Desktop/Tutorials$ sudo mysql -u root -p
-Enter password: 
+Enter password:
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 22
 Server version: 8.0.27-0ubuntu0.21.10.1 (Ubuntu)
@@ -1137,15 +1161,18 @@ Threads: 3  Questions: 20  Slow queries: 0  Opens: 134  Flush tables: 3  Open ta
 
 mysql> QUIT;
 Bye
-(.venv) marcosranes@DV3500-Ubuntu:~/Desktop/Tutorials$ 
+(.venv) marcosranes@DV3500-Ubuntu:~/Desktop/Tutorials$
 ```
+
 ## Step 6 – Creating a new MySQL database and user/password
+
 Let create a new database called wpblog, type: ` mysql> CREATE DATABASE wpblog;`
 
-__Syntax:__ mysql> create database DATABASE_NAME; 
+**Syntax:** mysql> create database DATABASE_NAME;
+
 ```
-(.venv) marcosranes@DV3500-Ubuntu:~/Desktop/Tutorials$ sudo mysql -u root -p  
-Enter password: 
+(.venv) marcosranes@DV3500-Ubuntu:~/Desktop/Tutorials$ sudo mysql -u root -p
+Enter password:
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 23
 Server version: 8.0.27-0ubuntu0.21.10.1 (Ubuntu)
@@ -1161,20 +1188,26 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 mysql> CREATE DATABASE wpblog;
 Query OK, 1 row affected (0.06 sec)
 
-mysql> 
+mysql>
 ```
+
 ## Create a new user (only with local access) and grant privileges to this user on the new database.
 
 If your stack ships MySQL v8.x:
+
 ```
 mysql> create user 'USER_NAME'@'localhost' identified by 'PASSWORD';
 mysql> grant all privileges on DATABASE_NAME.* TO 'USER_NAME'@'localhost';
 ```
+
 If your stack ships an older version of MySQL:
+
 ```
 mysql> grant all privileges on DATABASE_NAME.* TO 'USER_NAME'@'localhost' identified by 'PASSWORD';
 ```
+
 As an instance, I’m going to create a new user named "wpuser" for our database called wpblog as follows:
+
 ```
 mysql> create user wpuser@'localhost' identified by 'rene2537';
 ERROR 1819 (HY000): Your password does not satisfy the current policy requirements
@@ -1182,13 +1215,16 @@ ERROR 1819 (HY000): Your password does not satisfy the current policy requiremen
 mysql> create user wpuser@'localhost' identified by 'Rene#2537';
 Query OK, 0 rows affected (0.06 sec)
 
-mysql> 
+mysql>
 ```
-Or, we can create a REMOTE user. After the '@', look at the placeholder '%' INSTEAD of the 'localhost' parameter...  
+
+Or, we can create a REMOTE user. After the '@', look at the placeholder '%' INSTEAD of the 'localhost' parameter...
+
 ```
 mysql> CREATE USER 'wpuser'@'%' IDENTIFIED BY 'Rene#1816';
 Query OK, 0 rows affected (0.01 sec)
 ```
+
 ```
 # Dica ERROR 1819 (HY000): Your password does not satisfy the current policy requirements
 Jhonata Lamim abril 11, 2018 8 Comments  mysql
@@ -1222,19 +1258,25 @@ Query OK, 0 rows affected (0.41 sec)
 
 mysql>
 ```
- 
+
 ## Finally, give permissions:
+
 ```
 mysql> GRANT SELECT, INSERT, UPDATE, DELETE ON wpblog.* TO 'wpuser'@'%';
 Query OK, 0 rows affected (0.01 sec)
 ```
+
 ## Of course, I can grant ALL PRIVILEGES too as follows:
+
 ```
 mysql> GRANT ALL PRIVILEGES ON wpblog.* TO 'wpuser'@'%';
 Query OK, 0 rows affected (0.01 sec)
 ```
+
 ## See MySQL users and their grants:
+
 mysql> SELECT user,host FROM mysql.user;
+
 ```
 mysql> SELECT user,host FROM mysql.user;
 +------------------+-----------+
@@ -1250,7 +1292,9 @@ mysql> SELECT user,host FROM mysql.user;
 +------------------+-----------+
 7 rows in set (0.04 sec)
 ```
+
 mysql> SHOW GRANTS for wpuser;
+
 ```
 mysql> SHOW GRANTS for wpuser;
 +----------------------------------------------------+
@@ -1261,43 +1305,54 @@ mysql> SHOW GRANTS for wpuser;
 +----------------------------------------------------+
 2 rows in set (0.00 sec)
 ```
+
 ## Test it as follows:
-mysql -u wpuser -p wpblog          #senha: Rene#2537
+
+mysql -u wpuser -p wpblog #senha: Rene#2537
 mysql -u wpuser -h localhost -p wpblog
 
 # Check Current Version: `mysqld --version` or `mysqladmin --version`
+
 ```
 (.venv) marcosranes@DV3500-Ubuntu:~/Desktop/Tutorials$ mysqld --version
 /usr/sbin/mysqld  Ver 8.0.27-0ubuntu0.21.10.1 for Linux on x86_64 ((Ubuntu))
 (.venv) marcosranes@DV3500-Ubuntu:~/Desktop/Tutorials$ mysqladmin --version
 mysqladmin  Ver 8.0.27-0ubuntu0.21.10.1 for Linux on x86_64 ((Ubuntu))
 ```
+
 ## Create a new user (with remote access) and grant privileges to this user on the new database.
 
 If your stack ships MySQL v8.x:
+
 ```
   mysql> create user 'USER_NAME'@'%' identified by 'PASSWORD';
 
   mysql> grant all privileges on DATABASE_NAME.* TO 'USER_NAME'@'%';
 ```
+
 If your stack ships an older version of MySQL:
+
 ```
   mysql> grant all privileges on DATABASE_NAME.* TO 'USER_NAME'@'%' identified by 'PASSWORD';
 ```
+
 ## After modifying the MySQL grant tables, execute the following command in order to apply the changes:
+
 ```
   mysql> flush privileges;
 ```
 
-## Bonus: 
+## Bonus:
 
 Where,
+
 ```
 -u wpuser : User for login
 -h localhost : Connect to host named localhost
 -p : Prompt for password
 wpblog : Connect to database named wpblog
 ```
+
 Some applications require specific privileges in the database. Check the MySQL official [getting started guide.](https://dev.mysql.com/doc/mysql-getting-started/en/)\
 References:\
 [Article 1](https://www.cyberciti.biz/faq/ubuntu-20-04-update-installed-packages-for-security/)\
