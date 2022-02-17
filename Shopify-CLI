@@ -1,0 +1,89 @@
+
+# ` $ date `
+```
+Fri Dec 24 03:25:47 PM -03 2021
+```
+ 
+## SHOPIFY CLI (Command Line Interface)
+
+# ` $ sudo apt update `
+```
+Hit:1 http://us.archive.ubuntu.com/ubuntu impish InRelease
+Hit:2 https://dl.google.com/linux/chrome/deb stable InRelease
+Hit:3 http://us.archive.ubuntu.com/ubuntu impish-updates InRelease
+Hit:4 http://us.archive.ubuntu.com/ubuntu impish-backports InRelease
+Hit:5 https://linux.teamviewer.com/deb stable InRelease
+Hit:6 http://us.archive.ubuntu.com/ubuntu impish-security InRelease
+Hit:7 http://packages.microsoft.com/repos/code stable InRelease
+Hit:8 https://download.docker.com/linux/ubuntu impish InRelease
+Reading package lists...
+Building dependency tree...
+Reading state information...
+All packages are up to date.
+```
+
+# ` $ sudo apt install nodejs `
+
+# ` $ sudo apt install ruby-full `
+```
+Reading package lists...
+Building dependency tree...
+Reading state information...
+ruby-full is already the newest version (1:2.7+2build1).
+The following packages were automatically installed and are no longer required:
+  chromium-codecs-ffmpeg-extra gstreamer1.0-vaapi
+  libgstreamer-plugins-bad1.0-0 libva-wayland2
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+```
+
+# ` $ sudo apt install build-essential `
+```
+Reading package lists...
+Building dependency tree...
+Reading state information...
+build-essential is already the newest version (12.9ubuntu2).
+The following packages were automatically installed and are no longer required:
+  chromium-codecs-ffmpeg-extra gstreamer1.0-vaapi
+  libgstreamer-plugins-bad1.0-0 libva-wayland2
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+```
+
+# ` $ sudo apt install bison openssl curl git-core zlib1g-dev libssl-dev libyaml-dev autoconf libc6-dev ncurses-dev automake libtool `
+```
+Reading package lists...
+Building dependency tree...
+Reading state information...
+autoconf is already the newest version (2.69-14).
+automake is already the newest version (1:1.16.4-2).
+bison is already the newest version (2:3.7.6+dfsg-1build1).
+curl is already the newest version (7.74.0-1.3ubuntu2).
+git is already the newest version (1:2.32.0-1ubuntu1).
+libc6-dev is already the newest version (2.34-0ubuntu3).
+libncurses-dev is already the newest version (6.2+20201114-2build1).
+libtool is already the newest version (2.4.6-15).
+libyaml-dev is already the newest version (0.2.2-1).
+zlib1g-dev is already the newest version (1:1.2.11.dfsg-2ubuntu7).
+libssl-dev is already the newest version (1.1.1l-1ubuntu1.1).
+openssl is already the newest version (1.1.1l-1ubuntu1.1).
+The following packages were automatically installed and are no longer required:
+  chromium-codecs-ffmpeg-extra gstreamer1.0-vaapi
+  libgstreamer-plugins-bad1.0-0 libva-wayland2
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+```
+
+# ` $ sudo gem install shopify-cli `
+```
+Successfully installed shopify-cli-2.7.4
+Parsing documentation for shopify-cli-2.7.4
+Done installing documentation for shopify-cli after 1 seconds
+1 gem installed
+```
+
+## ` $ date `
+<span style='color:#fff; font-family: Dejavu Sans Mono; font-size: 1.1em;'>- Path: /home/marcosranes/Desktop/Tutorials/Shopify</span>
+```
+Tue Jan  4 03:22:22 PM -03 2022
+```
