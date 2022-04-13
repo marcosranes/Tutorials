@@ -156,9 +156,16 @@ As you can see the server was restarted successfuly.
 
 ## Now, get started by exploring your postgresql server with simple sql commands.
 
-Logging into database 
+Logging into database in two ways
 ```shell
 devops3559@ubuntu-labs:~$ sudo -u postgres psql postgres
+psql (12.9 (Ubuntu 12.9-0ubuntu0.20.04.1))
+Type "help" for help.
+
+postgres=#
+```
+```shell
+devops3559@ubuntu-labs:~$ sudo -u postgres psql
 psql (12.9 (Ubuntu 12.9-0ubuntu0.20.04.1))
 Type "help" for help.
 
@@ -200,3 +207,11 @@ postgres=# \dt
  public | clients | table | postgres
 (1 row)
 ```
+Changing the password
+```shell
+postgres=# \password
+Enter new password: 123456
+Enter it again: 123456
+postgres=# 
+```
+
