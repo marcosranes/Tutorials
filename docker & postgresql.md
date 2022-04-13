@@ -58,7 +58,7 @@ In order to disable postgresql auto initializing service, usage: disable, otherw
 To see all auto initializing services when booting the system type $ ls /etc/init.d\
 So, as you can see several ways to handle with postgresql, but lets chose to use $ sudo service postgresql stop 
 
-After that, rerun the docker rum command for postgres you've earlier tried
+After that, rerun the docker run command for postgres you've earlier tried
 ```
 docker run --rm --name pg-docker -e POSTGRES_PASSWORD=docker -d -p 5432:5432 -v $HOME/docker/volumes/postgres:/var/lib/postgresql/data postgres
 ```
@@ -66,7 +66,13 @@ To see it running "docker ps" will show you all docker containers list running f
 ```
 $ docker ps
 ```
-OTHERWISE modify the client postgresql port if it's already in use, i. e. -p 5432:5432, change to -p 5434:5432 for instance.
+OTHERWISE modify the client postgresql port if it's already in use, i. e. -p 5432:5432, change to -p 5434:5432 for instance, however don't forget specifying the new port by adding -p 5434 as a parameter when logging i.e. (psql -h localhost -U "postgres" -p 5434).
+
+If you want handle with the postgres default localhost listening port and other configurations try 
+cat /etc/postgresql/12/main/postgresql.conf | less, so go scrolling until you find the properly line to change it.
+
+Note: 12 is the my postgresql version, so investigate through the path by typing 'ls /etc/postgresql' and replace to yours.
+In order to make changes to postgresql.conf file you'll need sudo permissions and open it under an editor. i.e 'sudo nano /etc/postgresql/12/main/postgresql.conf', otherwise just add the -p parameter specifying the port as I told earlier, it's more practice.
 
 The postgres service from the docker yet comes with the native postgres client known as psql previously activated under the default credentials, user: postgres and "docker" as password. To call a postgres shell section type
 ```
