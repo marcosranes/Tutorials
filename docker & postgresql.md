@@ -32,7 +32,7 @@ $ docker run hello-world
 ```
 The above command will bring you a built hello-world docker image from the docker repository.
 
-# Postgres
+# Docker running Postgres 
 
 Download the most recent docker image from the dockerhub repository
 ```
@@ -86,9 +86,6 @@ CREATE EXTENSION adminpack;             -adminpack brings for us insteresting to
 \l 
 \q                                      -to quit
 ```
-```
-sudo -u postgres createuser -D -A -P newuserpostgres 
-```
 Note: if your project already have a docker-compose.yaml file properly set, you can containerize your application as a docker container, and not depending on your machine to run it. docker-compose creates mini container clusters for running your application litely\
 Docker isn't a virtual machine, it utilizes the kernel from your system. see it\
 $ ps aux    - look for postgres, second colunm look for its PID process, so in my case 3618 then\
@@ -101,3 +98,106 @@ As you can see, Docker runs side by side with your system
 Type $ docker ps, look at the container ID, type
 
 $ docker stop 4t21ac53d682
+
+# Linux running Postgres
+The commands themself seem like the same, but they differ in some aspects, once here sudo is essential, for instance the following command is used for creating a user for the database.
+```
+sudo -u postgres createuser -D -A -P newusersql 
+```
+Creating a DataBase **dbtest** for the user **newusersql** we've just created 
+```
+sudo -u postgres createdb -O newusersql dbTest
+```
+To enter
+```
+sudo -u postgres psql dbTest
+```
+For excluding...
+```
+dbTest=# DROP DATABASE dbTest
+dbTest-# DROP USER marcosranes
+dbTest-# \q
+```
+
+
+
+```
+sudo nano /etc/postgresql/12/main/postgresql.conf
+```
+```shell
+# - Connection Settings -
+
+#listen_addresses = 'localhost'         # what IP address(es) to listen on;
+```
+```shell
+# - Connection Settings -
+
+listen_addresses = '*'         # what IP address(es) to listen on;
+```
+```
+sudo service postgresql restart
+```
+```
+sudo service postgresql status
+```
+take a look at the postgres Active session...
+```
+● postgresql.service - PostgreSQL RDBMS
+     Loaded: loaded (/lib/systemd/system/postgresql.service; enabled; vendor preset: enabled)
+     Active: active (exited) since Wed 2022-04-13 17:17:03 CDT; 19s ago
+    Process: 14599 ExecStart=/bin/true (code=exited, status=0/SUCCESS)
+   Main PID: 14599 (code=exited, status=0/SUCCESS)
+
+Apr 13 17:17:03 ubuntu-labs systemd[1]: Starting PostgreSQL RDBMS...
+Apr 13 17:17:03 ubuntu-labs systemd[1]: Finished PostgreSQL RDBMS.
+```
+As you can see the server was restarted successfuly.
+
+
+## Now, get started by exploring your postgresql server with simple sql commands.
+
+Logging into database 
+```
+devops3559@ubuntu-labs:~$ sudo -u postgres psql postgres
+psql (12.9 (Ubuntu 12.9-0ubuntu0.20.04.1))
+Type "help" for help.
+
+postgres=#
+```
+Showing the list of roles
+```
+postgres=# \l
+                                   List of databases
+   Name    |    Owner    | Encoding |   Collate   |    Ctype    |   Access privileges   
+-----------+-------------+----------+-------------+-------------+-----------------------
+ dbTest    | newusersql  | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ postgres  | postgres    | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ template0 | postgres    | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+           |             |          |             |             | postgres=CTc/postgres
+ template1 | postgres    | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+           |             |          |             |             | postgres=CTc/postgres
+(4 rows)
+```
+Toggling between database
+```
+postgres=# \connect dbTest
+You are now connected to database "dbTest" as user "postgres".
+dbTest=# \connect template0
+FATAL:  database "template0" is not currently accepting connections
+Previous connection kept
+dbTest=# \connect template1
+You are now connected to database "template1" as user "postgres".
+template1=# \connect templateO
+template1=# \connect postgres
+You are now connected to database "postgres" as user "postgres".
+postgres=# \connect postgres
+```
+Showing tables
+```
+postgres=# \dt
+          List of relations
+ Schema |   Name   | Type  |  Owner   
+--------+----------+-------+----------
+ public | clients | table | postgres
+(1 row)
+```
