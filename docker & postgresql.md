@@ -187,7 +187,6 @@ FATAL:  database "template0" is not currently accepting connections
 Previous connection kept
 dbTest=# \connect template1
 You are now connected to database "template1" as user "postgres".
-template1=# \connect templateO
 template1=# \connect postgres
 You are now connected to database "postgres" as user "postgres".
 postgres=# \connect postgres
