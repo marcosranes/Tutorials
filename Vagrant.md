@@ -33,5 +33,33 @@ Bringing machine 'web01' up with 'virtualbox' provider...
 ==> web01: [vagrant-hostmanager:host] Updating hosts file on your workstation (password may be required)...
 ==> web01: Machine already provisioned. Run `vagrant provision` or use the `--provision`
 ==> web01: flag to force provisioning. Provisioners marked to run always will still run.
-devops3559@ubuntu-labs:~/Desktop/vagrant/Provisioned_VMs$ 
+devops3559@ubuntu-labs:~/Desktop/vagrant/Provisioned_VMs$
+```
+## `$ vagrant ssh web01`
+```shell
+devops3559@ubuntu-labs:~/Desktop/vagrant/Provisioned_VMs$ vagrant ssh web01
+Welcome to Ubuntu 16.04.7 LTS (GNU/Linux 4.4.0-210-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+UA Infra: Extended Security Maintenance (ESM) is not enabled.
+
+1 update can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+97 additional security updates can be applied with UA Infra: ESM
+Learn more about enabling UA Infra: ESM service for Ubuntu 16.04 at
+https://ubuntu.com/16-04
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+New release '18.04.6 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Sat Apr  9 11:15:18 2022 from 10.0.2.2
+vagrant@web01:~$ 
 ```
