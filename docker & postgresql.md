@@ -66,6 +66,8 @@ To see it running "docker ps" will show you all docker containers list running f
 ```
 $ docker ps
 ```
+OTHERWISE modify the client postgresql port if it's already in use, i. e. -p 5432:5432, change to -p 5434:5432 for instance.
+
 The postgres service from the docker yet comes with the native postgres client known as psql previously activated under the default credentials, user: postgres and "docker" as password. To call a postgres shell section type
 ```
 $ psql -h localhost -U "postgres"
