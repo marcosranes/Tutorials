@@ -78,13 +78,18 @@ The postgres service from the docker yet comes with the native postgres client k
 ```
 $ psql -h localhost -U "postgres"
 ```
-After that postgres shell section should open for you that seems like this postgres=# then you are into the interactive psql shell client. commands to use:
-
+Once the postgres shell section is open for you, which should seem like this **postgres=#**, know that you are into the interactive psql shell client.\
+So try these useful commands:
 ```
+CREATE EXTENSION adminpack;             -adminpack brings for us insteresting tools for database management 
+\password postgres                      -to change the password for the user postgres --in our case, our default password is "docker"
 \l 
-\q - to quit
+\q                                      -to quit
 ```
-note: if your project already have a docker-compose.yaml file properly set, you can containerize your application as a docker container, and not depending on your machine to run it. docker-compose creates mini container clusters for running your application litely\
+```
+sudo -u postgres createuser -D -A -P newuserpostgres 
+```
+Note: if your project already have a docker-compose.yaml file properly set, you can containerize your application as a docker container, and not depending on your machine to run it. docker-compose creates mini container clusters for running your application litely\
 Docker isn't a virtual machine, it utilizes the kernel from your system. see it\
 $ ps aux    - look for postgres, second colunm look for its PID process, so in my case 3618 then\
 $ cat /proc/3618/cgroup\
