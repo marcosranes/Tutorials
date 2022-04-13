@@ -141,7 +141,7 @@ sudo service postgresql restart
 sudo service postgresql status
 ```
 take a look at the postgres Active session...
-```
+```shell
 ● postgresql.service - PostgreSQL RDBMS
      Loaded: loaded (/lib/systemd/system/postgresql.service; enabled; vendor preset: enabled)
      Active: active (exited) since Wed 2022-04-13 17:17:03 CDT; 19s ago
@@ -157,7 +157,7 @@ As you can see the server was restarted successfuly.
 ## Now, get started by exploring your postgresql server with simple sql commands.
 
 Logging into database 
-```
+```shell
 devops3559@ubuntu-labs:~$ sudo -u postgres psql postgres
 psql (12.9 (Ubuntu 12.9-0ubuntu0.20.04.1))
 Type "help" for help.
@@ -165,7 +165,7 @@ Type "help" for help.
 postgres=#
 ```
 Showing the list of roles
-```
+```shell
 postgres=# \l
                                    List of databases
    Name    |    Owner    | Encoding |   Collate   |    Ctype    |   Access privileges   
@@ -179,7 +179,7 @@ postgres=# \l
 (4 rows)
 ```
 Toggling between database
-```
+```shell
 postgres=# \connect dbTest
 You are now connected to database "dbTest" as user "postgres".
 dbTest=# \connect template0
@@ -193,7 +193,7 @@ You are now connected to database "postgres" as user "postgres".
 postgres=# \connect postgres
 ```
 Showing tables
-```
+```shell
 postgres=# \dt
           List of relations
  Schema |   Name   | Type  |  Owner   
