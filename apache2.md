@@ -97,12 +97,24 @@ To                         Action      From
 devops3559@ubuntu-labs:~$ 
 ```
 
-## Finding your Ubuntu 20.04 LTS IP address
+## Finding your Ubuntu 20.04 LTS IP addresses
 
+To find specifying the hostname
 ```shell
 devops3559@ubuntu-labs:~$ hostname -i
 127.0.1.1
 ```
+```shell
+devops3559@ubuntu-labs:~$ hostname -I
+192.168.0.106 172.17.0.1 172.27.0.1 192.168.56.1
+```
+To find your public IPv4/IPv6 address from the CLI
+```shell
+devops3559@ubuntu-labs:~$ dig +short myip.opendns.com @resolver1.opendns.com
+45.162.147.188
+devops3559@ubuntu-labs:~$ 
+```
+To list your ip address from the sessions
 ```shell
 devops3559@ubuntu-labs:~$ ip a s lo
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
@@ -112,6 +124,7 @@ devops3559@ubuntu-labs:~$ ip a s lo
     inet6 ::1/128 scope host 
        valid_lft forever preferred_lft forever
 ```
+To show the whole session ip address list
 ```shell
 devops3559@ubuntu-labs:~$ ip a
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
