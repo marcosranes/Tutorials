@@ -30,6 +30,15 @@ Now, verify your last settings, try running docker without sudo
 ```
 $ docker run hello-world
 ```
+# `$ ip a s docker0`
+```
+4: docker0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default 
+    link/ether 02:42:dc:46:bd:a3 brd ff:ff:ff:ff:ff:ff
+    inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::42:dcff:fe46:bda3/64 scope link 
+       valid_lft forever preferred_lft forever
+```
 The above command will bring you a built hello-world docker image from the docker repository.
 
 # Docker running Postgres 
