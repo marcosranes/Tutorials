@@ -96,3 +96,64 @@ To                         Action      From
 
 devops3559@ubuntu-labs:~$ 
 ```
+
+## Finding your Ubuntu 20.04 LTS IP address
+
+```shell
+devops3559@ubuntu-labs:~$ hostname -i
+127.0.1.1
+```
+```shell
+devops3559@ubuntu-labs:~$ ip a s lo
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+```
+```shell
+devops3559@ubuntu-labs:~$ ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: enp2s0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc fq_codel state DOWN group default qlen 1000
+    link/ether d0:94:66:cb:c0:3f brd ff:ff:ff:ff:ff:ff
+3: wlp0s20f3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether 5c:cd:5b:e8:b1:e2 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.106/24 brd 192.168.0.255 scope global dynamic noprefixroute wlp0s20f3
+       valid_lft 4643sec preferred_lft 4643sec
+    inet6 fe80::e991:fd75:48f8:14b7/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+4: docker0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default 
+    link/ether 02:42:dc:46:bd:a3 brd ff:ff:ff:ff:ff:ff
+    inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::42:dcff:fe46:bda3/64 scope link 
+       valid_lft forever preferred_lft forever
+5: br-8bb2524ee84c: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default 
+    link/ether 02:42:b3:3a:fa:e4 brd ff:ff:ff:ff:ff:ff
+    inet 172.27.0.1/16 brd 172.27.255.255 scope global br-8bb2524ee84c
+       valid_lft forever preferred_lft forever
+7: veth186b6dd@if6: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master docker0 state UP group default 
+    link/ether 6e:8d:d5:9e:f7:ef brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet6 fe80::6c8d:d5ff:fe9e:f7ef/64 scope link 
+       valid_lft forever preferred_lft forever
+8: vboxnet0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 0a:00:27:00:00:00 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.56.1/24 brd 192.168.56.255 scope global vboxnet0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::800:27ff:fe00:0/64 scope link 
+       valid_lft forever preferred_lft forever
+```
+If you are missing the popular ifconfig command for listing ip interfaces, be free to install it
+```shell
+devops3559@ubuntu-labs:~$ ifconfig
+
+Command 'ifconfig' not found, but can be installed with:
+
+sudo apt install net-tools
+```
