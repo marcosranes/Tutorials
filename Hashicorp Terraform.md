@@ -84,8 +84,10 @@ dpkg --print-architecture
 ...
 amd64
 ```
-2. Go to download [Terraform](https://www.terraform.io/downloads) web site. Look at the LINUX BINARY DOWNLOAD session and chose your archtecture,\
-so click the right button mouse, then click `Copy link address` in dropdown, go back to the terminal and type `wget -O /tmp/terraform_install.zip `and past the link you copy earlier, press enter.
+2. Go to download [Terraform](https://www.terraform.io/downloads) web site. 
+- Look at the LINUX BINARY DOWNLOAD session and chose your archtecture;
+- Click the right button mouse, then click `Copy link address` in dropdown;
+- Back to the terminal, type `wget -O /tmp/terraform_install.zip`, paste the link copy, then press enter.
 ```
 wget -O /tmp/terraform_install.zip https://releases.hashicorp.com/terraform/1.1.8/terraform_1.1.8_linux_amd64.zip
 ```
