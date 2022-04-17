@@ -95,7 +95,7 @@ wget -O /tmp/terraform_install.zip https://releases.hashicorp.com/terraform/1.1.
 ```
 sudo unzip -d /usr/local/bin /tmp/terraform_install.zip
 ```
-Otherwise...
+- Otherwise...
 ```
 sudo unzip -d /usr/bin /tmp/terraform_installer.zip
 ```
@@ -115,7 +115,7 @@ terraform --version
 ```
 sudo rm $(which terraform)
 ```
-Otherwise, treat it with --force
+- Otherwise, treat it with --force
 ```
 sudo rm $(which terraform) -f
 ```
