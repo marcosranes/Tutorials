@@ -76,7 +76,7 @@ Global options (use these before the subcommand, if any):
 ```
 sudo apt purge terraform
 ```
-# Terraform Installation through download
+# Terraform Installation through binary download
 ## Requirements:
 1. Know which architecture your distro Linux is under
 ```
