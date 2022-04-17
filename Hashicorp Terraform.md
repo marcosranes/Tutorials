@@ -1,6 +1,6 @@
 # Terraform Installation with Apt
 ## Requirements: 
-1. You'll need a Client URL tool installed 
+1. You'll need the Client URL tool installed 
 ```
 sudo apt install curl
 ```
@@ -16,20 +16,20 @@ sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(l
 ```
 sudo apt update && sudo apt install terraform -y
 ```
-5.  Pattern path
+5.  Output the Terraform pattern path
 ```
 which terraform
 ...
 /usr/bin/terraform
 ```
-6. Version
+6. Terraform version
 ```
 terraform --version
 ...
 Terraform v1.1.8
 on linux_amd64
 ```
-7. Usage
+7. Terraform usage
 ```
 terraform --help
 ...
