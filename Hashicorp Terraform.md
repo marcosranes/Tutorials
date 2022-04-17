@@ -78,20 +78,20 @@ sudo apt purge terraform
 ```
 # Terraform Installation through download
 ## Requirements:
-1. Know which architecture your distro Lunux is under
+1. Know which architecture your distro Linux is under
 ```
 dpkg --print-architecture
 ...
 amd64
 ```
-2. Download [Terraform](https://www.terraform.io/downloads). Go to LINUX BINARY DOWNLOAD, chose your archtecture, so click the right button mouse,\
-then click `Copy link address` in dropdown, go to the terminal and type `wget -O /tmp/terraform.zip <past the link you copy earlier>`, press enter.
+2. Go to download [Terraform](https://www.terraform.io/downloads) web site. Look at the LINUX BINARY DOWNLOAD session and chose your archtecture,\
+so click the right button mouse, then click `Copy link address` in dropdown, go back to the terminal and type `wget -O /tmp/terraform_install.zip `and past the link you copy earlier, press enter.
 ```
-wget -O /tmp/terraform_installer.zip https://releases.hashicorp.com/terraform/1.1.8/terraform_1.1.8_linux_amd64.zip
+wget -O /tmp/terraform_install.zip https://releases.hashicorp.com/terraform/1.1.8/terraform_1.1.8_linux_amd64.zip
 ```
-3. Unzip terraform_installer.zip file and send it straight to its pattern destination
+3. Unzip terraform_install.zip file and send it straight to its pattern destination
 ```
-sudo unzip -d /usr/local/bin /tmp/terraform_installer.zip
+sudo unzip -d /usr/local/bin /tmp/terraform_install.zip
 ```
 Otherwise...
 ```
