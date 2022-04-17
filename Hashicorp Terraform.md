@@ -109,12 +109,13 @@ terraform
 5. Also try those commands. The first one prints the terraform's path, and the second one the terraform's version
 ```
 which terraform
-...
 terraform --version
 ```
 6. Uninstall Terraform
 ```
 sudo rm $(which terraform)
-...
+```
+Otherwise, treat it with --force
+```
 sudo rm $(which terraform) -f
 ```
